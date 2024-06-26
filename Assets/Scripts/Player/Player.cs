@@ -1,0 +1,245 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Scripting.APIUpdating;
+
+public class Player : Singleton<Player>
+{
+    public bool FacingLeft { get { return facingLeft; } }
+    public PlayerHealth stats;
+
+    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float dashSpeed = 4f;
+    [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField] private Transform weaponCollider;
+
+    private PlayerControls playerControls;
+    private Vector2 movementInput;
+    private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private KnockBack knockback;
+    private float startingMoveSpeed;
+    bool canMove = true;
+    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    public ContactFilter2D movementFilter;
+    public float collisionOffset = 0.05f;
+
+
+    private bool facingLeft = false;
+    private bool isDashing = false;
+
+    //Inventory
+    [NonSerialized] public InventoryController inventory;
+    [SerializeField] private InventoryUI inventoryUI;
+
+    public LayerMask interactableLayer;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        playerControls = new PlayerControls();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        knockback = GetComponent<KnockBack>();
+
+        inventory = new InventoryController(UseItem);
+        inventoryUI.SetInventory(inventory);
+    }
+
+    private void Start()
+    {
+        OpenInventory();
+        playerControls.Combat.Dash.performed += _ => Dash();
+
+        startingMoveSpeed = moveSpeed;
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    public void HandleUpdate()
+    {
+        if (canMove)
+        {
+            if (movementInput != Vector2.zero)
+            {
+                animator.SetFloat("moveX", movementInput.x);
+                animator.SetFloat("moveY", movementInput.y);
+                bool success = TryMove(movementInput);
+
+                if (!success)
+                {
+                    success = TryMove(new Vector2(movementInput.x, 0));
+                }
+
+                if (!success)
+                {
+                    success = TryMove(new Vector2(0, movementInput.y));
+                }
+            }
+
+            if (movementInput.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if (movementInput.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+        }
+    }
+
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
+    }
+
+    private void UseItem(Item item)
+    {
+        switch (item.itemType)
+        {
+            case Item.ItemType.HealthPotion:
+                stats.currentHealth += 10;
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
+                Debug.Log($"Health Pots: {inventory.GetItems()}");
+                break;
+            case Item.ItemType.ManaPotion:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.ManaPotion, amount = 1 });
+                break;
+        }
+    }
+
+    private bool TryMove(Vector2 direction)
+    {
+        if (movementInput != Vector2.zero)
+        {
+            int count = rb.Cast(direction, movementFilter, castCollisions, moveSpeed * Time.fixedDeltaTime + collisionOffset);
+
+            if (count == 0)
+            {
+                rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void OnMove(InputValue movementValue)
+    {
+        movementInput = movementValue.Get<Vector2>();
+    }
+
+    void OnFire()
+    {
+        animator.SetTrigger("swordAttack");
+    }
+
+    void OnInteract()
+    {
+        Interact();
+    }
+    void OnNextDialogue()
+    {
+        TriggerEvent.Trigger();
+        Debug.Log("Dialogging");
+    }
+
+    void OnOpenInv()
+    {
+        if (inventoryUI.gameObject.activeInHierarchy)
+        {
+            inventoryUI.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+
+        }
+        else
+        {
+            inventoryUI.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
+    private void AdjustPlayerFacingDirection()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerSecreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+
+        if (mousePos.x < playerSecreenPoint.x)
+        {
+            spriteRenderer.flipX = true;
+            facingLeft = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+            facingLeft = false;
+        }
+    }
+
+    private void OpenInventory()
+    {
+        if (inventoryUI.gameObject.activeInHierarchy)
+        {
+            inventoryUI.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+
+        }
+        else
+        {
+            inventoryUI.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
+    private void Interact()
+    {
+        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
+        Debug.Log(facingDir);
+        var interactPos = transform.position + facingDir * 1.5f;
+        Debug.Log(interactPos);
+        Debug.DrawLine(transform.position, interactPos, Color.blue, 5f);
+
+        var collider = Physics2D.OverlapCircle(interactPos, 0.5f, interactableLayer);
+        if (collider != null)
+        {
+            collider.GetComponent<Interactable>()?.Interact();
+        }
+    }
+
+    private void Dash()
+    {
+        if (!isDashing)
+        {
+            isDashing = true;
+            moveSpeed *= dashSpeed;
+            myTrailRenderer.emitting = true;
+            StartCoroutine(EndDashRoutine());
+        }
+    }
+
+    private IEnumerator EndDashRoutine()
+    {
+        float dashTime = .2f;
+        float dashCD = .25f;
+        yield return new WaitForSeconds(dashTime);
+        moveSpeed = startingMoveSpeed;
+        myTrailRenderer.emitting = false;
+        yield return new WaitForSeconds(dashCD);
+        isDashing = false;
+    }
+
+}
