@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RedBuilding : MonoBehaviour, Interactable
 {
-    public PlayerController player;
+    public Player player;
     public Vector2 newPos;
 
     public void Interact()

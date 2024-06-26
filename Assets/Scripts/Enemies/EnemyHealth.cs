@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int startingHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private float knockBackThrust = 15f;
+    [SerializeField] private Animator animator;
+    [SerializeField] private string deathAnim;
 
     private int currentHealth;
     private KnockBack knockBack;
@@ -32,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        knockBack.GetKnockedBack(PlayerController1.Instance.transform, knockBackThrust);
+        knockBack.GetKnockedBack((PlayerController1.Instance != null ? PlayerController1.Instance.transform : Player.Instance.transform), knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
     }
@@ -47,7 +49,15 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+            if (animator != null)
+            {
+                animator.SetTrigger(deathAnim);
+            }
+            else if (deathVFXPrefab != null) 
+            {
+                Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+            }
+            
             Destroy(gameObject);
         }
     }

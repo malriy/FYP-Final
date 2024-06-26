@@ -15,9 +15,8 @@ public class NPCController : MonoBehaviour, Interactable
     [SerializeField] private float roamSpeed = 1f; // Speed of roaming
     [SerializeField] private float roamDelay = 2f; // Delay between roaming movements
 
-    public PlayerController player;
     public PlayerController1 player1;
-    public Player player2;
+    public Player player;
     [SerializeField] private List<RewardItems> gifts;
 
     private Vector3 startPosition;

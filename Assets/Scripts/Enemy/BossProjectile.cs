@@ -12,7 +12,7 @@ public class BossProjectile : MonoBehaviour
     public Animator animator;
 
     private Vector3 destination;
-    private PlayerController player;
+    private Player player;
     [SerializeField] private GameObject explosionPrefab;
 
     public BossProjectile(GameObject shooter, Vector2 dir)
@@ -39,7 +39,7 @@ public class BossProjectile : MonoBehaviour
     {
         Velocity = Speed * direction;
         animator = GetComponent<Animator>();
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player").GetComponent<Player>();
 
         SetRotation(direction);
         SetDestination();

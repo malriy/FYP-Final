@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunStore : MonoBehaviour, Interactable
 {
     [SerializeField] private Dialog dialog;
-    public PlayerController player;
+    public Player player;
     public Vector2 newPos;
 
     public void Interact()

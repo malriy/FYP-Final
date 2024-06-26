@@ -94,6 +94,7 @@ public class QuestGiver : NPCController
         {
             //dialog.Lines.Clear();
             RewardPlayer();
+            DeleteQuestItems();
             helped = true;
             assignedQuest = false;
             rewarded = true;
@@ -141,5 +142,15 @@ public class QuestGiver : NPCController
         }
 
         CheckQuestCompletion();
+    }
+
+    void DeleteQuestItems()
+    {
+        CollectionGoal collectionGoal = quest.Goals.Find(goal => goal is CollectionGoal) as CollectionGoal;
+        if (collectionGoal != null)
+        {
+            var playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.inventory : Player.Instance.inventory;
+            playerInstance.RemoveItem(new Item { itemType = collectionGoal.requiredItem, amount = collectionGoal.RequiredAmount });
+        }
     }
 }

@@ -36,8 +36,9 @@ public class Shooter : MonoBehaviour, IEnemy
     }
 
     private void ShootBullet() {
-        Vector2 targetDirection = PlayerController1.Instance.transform.position - transform.position;
-
+        Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position;
+        Vector2 targetDirection = playerInstance - transform.position;
+        Debug.Log("shooting @ " + playerInstance);
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         newBullet.transform.right = targetDirection;
 

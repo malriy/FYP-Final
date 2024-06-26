@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stairs : MonoBehaviour
 {
-    public PlayerController player;
+    public Player player;
     public Vector2 newPos;
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -44,6 +44,7 @@ public class PlayerController1 : Singleton<PlayerController1>
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
+        inventoryUI.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -105,6 +106,14 @@ public class PlayerController1 : Singleton<PlayerController1>
     private void Move()
     {
         if (knockback.GettingKnockedBack) { return; }
+        if (movement == Vector2.zero)
+        {
+            myAnimator.SetBool("isMoving", false);
+        }
+        else
+        {
+            myAnimator.SetBool("isMoving", true);
+        }
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
@@ -177,4 +186,13 @@ public class PlayerController1 : Singleton<PlayerController1>
         isDashing = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ItemWorld itemWorld = collision.gameObject.GetComponent<ItemWorld>();
+        if (itemWorld != null)
+        {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
+    }
 }

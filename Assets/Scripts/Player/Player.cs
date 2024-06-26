@@ -49,6 +49,7 @@ public class Player : Singleton<Player>
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
+        inventoryUI.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -83,17 +84,15 @@ public class Player : Singleton<Player>
                 {
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
+                animator.SetBool("isMoving", success);
             }
-
-            if (movementInput.x < 0)
+            else
             {
-                spriteRenderer.flipX = true;
-            }
-            else if (movementInput.x > 0)
-            {
-                spriteRenderer.flipX = false;
+                animator.SetBool("isMoving", false);
             }
         }
+
+        AdjustPlayerFacingDirection();
     }
 
     public Transform GetWeaponCollider()
@@ -145,7 +144,6 @@ public class Player : Singleton<Player>
 
     void OnFire()
     {
-        animator.SetTrigger("swordAttack");
     }
 
     void OnInteract()
@@ -242,4 +240,13 @@ public class Player : Singleton<Player>
         isDashing = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ItemWorld itemWorld = collision.gameObject.GetComponent<ItemWorld>();
+        if (itemWorld != null)
+        {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
+    }
 }
