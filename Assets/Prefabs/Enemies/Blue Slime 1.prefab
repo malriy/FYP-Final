@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 99678764885729219}
   - component: {fileID: 3641772678777615077}
   - component: {fileID: 5168743770461473249}
+  - component: {fileID: -2038290689795341521}
   m_Layer: 0
   m_Name: Blue Slime 1
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7147038290343114448}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1539856, y: -3.276671, z: -0.0005504937}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -262,3 +263,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRadius: 5
   roamRadius: 10
+--- !u!114 &-2038290689795341521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147038290343114448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b47be44d928152429ea5575421d5f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCoin: {fileID: 380551365446387965, guid: 3b493ee5ee1f86f4d97938b2a95dd388, type: 3}
+  healthGlobe: {fileID: 380551365446387965, guid: 141334eceaf343e42bd2fc11fa580dfe, type: 3}
+  staminaGlobe: {fileID: 380551365446387965, guid: 6ba303b5586ab4c45bda201941fca8b2, type: 3}
