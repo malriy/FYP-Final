@@ -10,7 +10,7 @@ public class GunStore : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (DroneKiller.finished)
+        if (EnochMain.finished)
         {
             Vector2 pos = new Vector2(newPos.x, newPos.y);
             BossAI.startedFight = true;

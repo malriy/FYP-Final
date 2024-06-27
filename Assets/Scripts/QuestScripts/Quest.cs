@@ -23,4 +23,9 @@ public class Quest : MonoBehaviour
             OnQuestCompleted?.Invoke();
         }
     }
+
+    public virtual void PostQuest()
+    {
+
+    }
 }

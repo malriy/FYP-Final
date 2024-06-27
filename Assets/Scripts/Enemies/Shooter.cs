@@ -9,6 +9,7 @@ public class Shooter : MonoBehaviour, IEnemy
     [SerializeField] private int burstCount;
     [SerializeField] private float timeBetweenBursts;
     [SerializeField] private float restTime = 1f;
+    [SerializeField] private Transform shotPos;
 
     private bool isShooting = false;
     public void Attack() {  
@@ -38,8 +39,9 @@ public class Shooter : MonoBehaviour, IEnemy
     private void ShootBullet() {
         Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position;
         Vector2 targetDirection = playerInstance - transform.position;
-        Debug.Log("shooting @ " + playerInstance);
-        GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+        Vector3 shootLocation = shotPos != null ? shotPos.position : transform.position;
+        GameObject newBullet = Instantiate(bulletPrefab, shootLocation, Quaternion.identity);
         newBullet.transform.right = targetDirection;
 
         if (newBullet.TryGetComponent<Projectile>(out Projectile projectile)){

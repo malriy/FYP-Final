@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -5,13 +6,13 @@ using UnityEngine;
 
 public class QuestGiver : NPCController
 {
-    public bool assignedQuest;
-    public bool helped;
+    [NonSerialized] public bool assignedQuest;
+    [NonSerialized] public bool helped;
 
-    [SerializeField] private GameObject quests;
-    [SerializeField] private string questType;
-    [SerializeField] private DialogLine[] incompleteDialog;
-    [SerializeField] private DialogLine[] completeDialog;
+    private GameObject quests;
+    [SerializeField] private string questName;
+    [SerializeField] private Dialog incompleteDialog;
+    [SerializeField] private Dialog completeDialog;
     [SerializeField] private List<QuestItem> itemsToGive;
     [SerializeField] private List<RewardItems> rewards;
 
@@ -21,39 +22,37 @@ public class QuestGiver : NPCController
 
     private void Start()
     {
-
+        quests = GameObject.Find("Quests");
     }
 
     public override void Interact()
     {
-        base.Interact();
-
         if (!assignedQuest && !helped)
         {
+            base.Interact();
             AssignQuest();
             Debug.Log("Quest assigned");
-            
+            hasTalked = false;
         }
         else if (assignedQuest && !helped)
         {
-            dialog.Lines.Clear();
             CheckExistingItems();
             CheckQuestCompletion();
+            hasTalked = false;
+            Debug.Log(hasTalked);
         }
-        else
+        else if (assignedQuest && helped && !hasTalked)
         {
-            //dialog.Lines.Clear();
-            foreach (DialogLine i in completeDialog)
-            {
-                dialog.Lines.Add(i);
-            }
+            StartCoroutine(DialogueManager.Instance.ShowDialog(completeDialog));
+            hasTalked = true;
         }
+        else { base.Interact(); }
     }
 
     void AssignQuest()
     {
         assignedQuest = true;
-        quest = (Quest)quests.AddComponent(System.Type.GetType(questType));
+        quest = (Quest)quests.AddComponent(System.Type.GetType(questName));
 
         foreach (QuestItem questItem in itemsToGive)
         {
@@ -92,20 +91,18 @@ public class QuestGiver : NPCController
     {
         if (quest.isCompleted)
         {
-            //dialog.Lines.Clear();
             RewardPlayer();
             DeleteQuestItems();
             helped = true;
-            assignedQuest = false;
+            assignedQuest = true;
             rewarded = true;
+
+            quest.PostQuest();
         }
         else
         {
-            dialog.Lines.Clear();
-            foreach (DialogLine i in incompleteDialog)
-            {
-                dialog.Lines.Add(i);
-            }
+            StartCoroutine(DialogueManager.Instance.ShowDialog(incompleteDialog));
+
         }
     }
 
@@ -140,8 +137,6 @@ public class QuestGiver : NPCController
             }
             
         }
-
-        CheckQuestCompletion();
     }
 
     void DeleteQuestItems()

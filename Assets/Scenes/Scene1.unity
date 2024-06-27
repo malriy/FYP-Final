@@ -12349,7 +12349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a115759c7eaf1ca40b28fb0f85186105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   player1: {fileID: 273065283}
   player2: {fileID: 0}
 --- !u!4 &1493293143
@@ -13092,6 +13091,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2331146922048463137, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331146922048463137, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4149064065218301277, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13140,6 +13147,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4477760910154026936, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 4767152123238138524, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -13240,7 +13251,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6052630889653676063, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8893786530673128820, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
 --- !u!1001 &2970007133694915667
 PrefabInstance:

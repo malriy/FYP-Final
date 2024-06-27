@@ -18,7 +18,6 @@ public class Crowd : MonoBehaviour
             if (crowd.crowdID == crowdID)
             {
                 Destroy(crowd.gameObject);
-                return;
             }
         }
     }

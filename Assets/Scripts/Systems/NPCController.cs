@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class NPCController : MonoBehaviour, Interactable
     public string npcName;
 
     [SerializeField] public Dialog dialog;
+    [SerializeField] private Dialog newDialog;
+
     private Text nameText;
 
     [SerializeField] public bool willRoam = false; // Determines if the NPC should roam
@@ -15,6 +18,7 @@ public class NPCController : MonoBehaviour, Interactable
     [SerializeField] private float roamSpeed = 1f; // Speed of roaming
     [SerializeField] private float roamDelay = 2f; // Delay between roaming movements
 
+    [Header("Assign Player if NPC gift something")]
     public PlayerController1 player1;
     public Player player;
     [SerializeField] private List<RewardItems> gifts;
@@ -31,8 +35,6 @@ public class NPCController : MonoBehaviour, Interactable
     {
         nameText = GameObject.Find("NameText").GetComponent<Text>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //player = GameObject.Find("Player").GetComponent<PlayerController>();
-        //player1 = GameObject.Find("Player").GetComponent<PlayerController1>();
     }
 
     private void Start()
@@ -55,7 +57,8 @@ public class NPCController : MonoBehaviour, Interactable
             animator.SetBool("moving", moving);
         }
     }
-    private Coroutine talking;
+
+    [NonSerialized] public bool hasTalked;
     public virtual void Interact()
     {
         if (animator != null)
@@ -73,10 +76,18 @@ public class NPCController : MonoBehaviour, Interactable
             nameText.text = "???";
         }
         
-        talking = StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
-        GiftPlayer();
+        if (!hasTalked)
+        {
+            StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
+            GiftPlayer();
+            hasTalked = true;
+        }
+        else
+        {
+            StartCoroutine(DialogueManager.Instance.ShowDialog(newDialog));
+        }
     }
-    public bool moving;
+    [NonSerialized] public bool moving;
 
     void GiftPlayer()
     {

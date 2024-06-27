@@ -37,7 +37,8 @@ public class Player : Singleton<Player>
     [SerializeField] private InventoryUI inventoryUI;
 
     public LayerMask interactableLayer;
-    [SerializeField] private TextMeshProUGUI interactText;
+    //[SerializeField] private TextMeshPro interactText;
+    [SerializeField] private TextMeshPro interactText;
 
     protected override void Awake()
     {
@@ -51,7 +52,7 @@ public class Player : Singleton<Player>
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
-        inventoryUI.gameObject.SetActive(false);
+        
     }
 
     private void Start()
@@ -59,7 +60,7 @@ public class Player : Singleton<Player>
         OpenInventory();
         playerControls.Combat.Dash.performed += _ => Dash();
         interactText.gameObject.SetActive(false);
-
+        inventoryUI.gameObject.SetActive(false);
         startingMoveSpeed = moveSpeed;
     }
 
@@ -220,19 +221,26 @@ public class Player : Singleton<Player>
     {
         float detectionRadius = 1.5f;
 
-        // Draw the detection radius for debugging purposes
-        Debug.DrawLine(transform.position, transform.position + Vector3.up * detectionRadius, Color.blue, 5f);
-        Debug.DrawLine(transform.position, transform.position + Vector3.down * detectionRadius, Color.blue, 5f);
-        Debug.DrawLine(transform.position, transform.position + Vector3.left * detectionRadius, Color.blue, 5f);
-        Debug.DrawLine(transform.position, transform.position + Vector3.right * detectionRadius, Color.blue, 5f);
-
         // Detect colliders in the specified radius around the player
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, interactableLayer);
 
-        // If there are any colliders found, interact with the first one
         if (colliders.Length > 0)
         {
-            colliders[0].GetComponent<Interactable>()?.Interact();
+            Collider2D closestCollider = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (Collider2D collider in colliders)
+            {
+                float distance = Vector2.Distance(transform.position, collider.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestCollider = collider;
+                }
+            }
+
+            // Interact with the closest collider
+            closestCollider?.GetComponent<Interactable>()?.Interact();
         }
     }
 

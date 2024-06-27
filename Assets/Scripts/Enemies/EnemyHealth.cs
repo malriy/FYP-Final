@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] public int EnemyID;
     [SerializeField] private int startingHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private float knockBackThrust = 15f;
     [SerializeField] private Animator animator;
     [SerializeField] private string deathAnim;
+
+    public delegate void EnemyDiedEventHandler(EnemyHealth enemy);
+    public static event EnemyDiedEventHandler OnEnemyDied;
 
     private int currentHealth;
     private KnockBack knockBack;
@@ -57,7 +61,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             }
-            
+            OnEnemyDied?.Invoke(this);
             Destroy(gameObject);
         }
     }
