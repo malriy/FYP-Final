@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Quest : MonoBehaviour
 {
@@ -11,9 +12,15 @@ public class Quest : MonoBehaviour
     public bool isCompleted;
     public static bool finished;
 
+    public event Action OnQuestCompleted;
+
     public void CheckGoals()
     {
         isCompleted = Goals.All(g => g.Completed);
         finished = isCompleted;
+        if (isCompleted)
+        {
+            OnQuestCompleted?.Invoke();
+        }
     }
 }

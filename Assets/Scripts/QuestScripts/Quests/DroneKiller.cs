@@ -15,6 +15,13 @@ public class DroneKiller : Quest
             new KillGoal(this, 0, "Kill the two drones.", false, 0, 4)
         };
 
-        Goals.ForEach(g => g.Init()); 
+        Goals.ForEach(g => g.Init());
+
+        OnQuestCompleted += HandleQuestCompleted;
+    }
+
+    void HandleQuestCompleted()
+    {
+        Crowd.DestroyCrowd(0);
     }
 }

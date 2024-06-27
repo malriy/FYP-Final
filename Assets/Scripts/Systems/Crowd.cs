@@ -31,13 +31,7 @@ public class Crowd : MonoBehaviour
             hasInteracted = true; // Set the flag
 
             Vector3 direction = (player.transform.position - collision.transform.position).normalized;
-
-            // Move the player a few units away from the crowd
-            float distance = 5f; // Adjust the distance as needed
-            Vector2 newPosition = player.transform.position + (direction * distance);
-
-            // Set the player's position
-            player.transform.position = newPosition;
+            player.GetComponent<PlayerHealth>().TakeDamage(2, transform);
         }
     }
 

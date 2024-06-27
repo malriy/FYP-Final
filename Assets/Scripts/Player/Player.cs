@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Scripting.APIUpdating;
@@ -36,6 +37,7 @@ public class Player : Singleton<Player>
     [SerializeField] private InventoryUI inventoryUI;
 
     public LayerMask interactableLayer;
+    [SerializeField] private TextMeshProUGUI interactText;
 
     protected override void Awake()
     {
@@ -56,6 +58,7 @@ public class Player : Singleton<Player>
     {
         OpenInventory();
         playerControls.Combat.Dash.performed += _ => Dash();
+        interactText.gameObject.SetActive(false);
 
         startingMoveSpeed = moveSpeed;
     }
@@ -93,6 +96,16 @@ public class Player : Singleton<Player>
         }
 
         AdjustPlayerFacingDirection();
+        float detectionRadius = 1.5f;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, interactableLayer);
+        if (colliders.Length > 0)
+        {
+            interactText.gameObject.SetActive(true);
+        }
+        else
+        {
+            interactText.gameObject.SetActive(false);
+        }
     }
 
     public Transform GetWeaponCollider()
@@ -205,16 +218,21 @@ public class Player : Singleton<Player>
 
     private void Interact()
     {
-        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
-        Debug.Log(facingDir);
-        var interactPos = transform.position + facingDir * 1.5f;
-        Debug.Log(interactPos);
-        Debug.DrawLine(transform.position, interactPos, Color.blue, 5f);
+        float detectionRadius = 1.5f;
 
-        var collider = Physics2D.OverlapCircle(interactPos, 0.5f, interactableLayer);
-        if (collider != null)
+        // Draw the detection radius for debugging purposes
+        Debug.DrawLine(transform.position, transform.position + Vector3.up * detectionRadius, Color.blue, 5f);
+        Debug.DrawLine(transform.position, transform.position + Vector3.down * detectionRadius, Color.blue, 5f);
+        Debug.DrawLine(transform.position, transform.position + Vector3.left * detectionRadius, Color.blue, 5f);
+        Debug.DrawLine(transform.position, transform.position + Vector3.right * detectionRadius, Color.blue, 5f);
+
+        // Detect colliders in the specified radius around the player
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, interactableLayer);
+
+        // If there are any colliders found, interact with the first one
+        if (colliders.Length > 0)
         {
-            collider.GetComponent<Interactable>()?.Interact();
+            colliders[0].GetComponent<Interactable>()?.Interact();
         }
     }
 
