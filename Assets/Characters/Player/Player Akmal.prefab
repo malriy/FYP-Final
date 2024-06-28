@@ -1384,6 +1384,7 @@ GameObject:
   - component: {fileID: 4808499495590761079}
   - component: {fileID: 501448039973405742}
   - component: {fileID: 8937566888175075047}
+  - component: {fileID: 5456842447895047431}
   m_Layer: 0
   m_Name: Player Akmal
   m_TagString: Untagged
@@ -1626,7 +1627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c2adeb7ab67ca4185000cc9aa54c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 10
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
   currentHealth: 0
@@ -1657,6 +1658,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackTime: 0.2
+--- !u!114 &5456842447895047431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210128345759175519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a1bd1b658815748b6f90607df7ebb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullStaminaImage: {fileID: 21300000, guid: 5fdfc90b8a9dfac4f8758d8faa3ff175, type: 3}
+  emptyStaminaImage: {fileID: 21300000, guid: a0d53c10e65b9f540840d15a61901341, type: 3}
+  timeBetweenStaminaRefresh: 3
 --- !u!1 &8685791128026733521
 GameObject:
   m_ObjectHideFlags: 0

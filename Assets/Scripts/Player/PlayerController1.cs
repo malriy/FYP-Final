@@ -10,6 +10,7 @@ public class PlayerController1 : Singleton<PlayerController1>
 {
     public bool FacingLeft { get { return facingLeft; } }
     public PlayerHealth stats;
+    private Stamina stamina;
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
@@ -44,6 +45,7 @@ public class PlayerController1 : Singleton<PlayerController1>
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         knockback = GetComponent<KnockBack>();
+        stamina = GetComponent<Stamina>();
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
@@ -100,11 +102,11 @@ public class PlayerController1 : Singleton<PlayerController1>
         switch (item.itemType)
         {
             case Item.ItemType.HealthPotion:
-                stats.currentHealth += 10;
+                stats.HealPlayer();
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
-                Debug.Log($"Health Pots: {inventory.GetItems()}");
                 break;
             case Item.ItemType.ManaPotion:
+                stamina.RefreshStamina();
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.ManaPotion, amount = 1 });
                 break;
         }

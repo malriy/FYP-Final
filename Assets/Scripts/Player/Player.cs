@@ -10,6 +10,7 @@ public class Player : Singleton<Player>
 {
     public bool FacingLeft { get { return facingLeft; } }
     public PlayerHealth stats;
+    private Stamina stamina;
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
@@ -49,6 +50,7 @@ public class Player : Singleton<Player>
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         knockback = GetComponent<KnockBack>();
+        stamina = GetComponent<Stamina>();
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
@@ -119,11 +121,11 @@ public class Player : Singleton<Player>
         switch (item.itemType)
         {
             case Item.ItemType.HealthPotion:
-                stats.currentHealth += 10;
+                stats.HealPlayer();
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
-                Debug.Log($"Health Pots: {inventory.GetItems()}");
                 break;
             case Item.ItemType.ManaPotion:
+                stamina.RefreshStamina();
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.ManaPotion, amount = 1 });
                 break;
         }
@@ -246,8 +248,9 @@ public class Player : Singleton<Player>
 
     private void Dash()
     {
-        if (!isDashing)
+        if (!isDashing && Stamina.Instance.CurrentStamina > 0)
         {
+            Stamina.Instance.UseStamina();
             isDashing = true;
             moveSpeed *= dashSpeed;
             myTrailRenderer.emitting = true;

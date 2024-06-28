@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1621542300959057169, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4807964353682420161, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.67
@@ -241,6 +245,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6462336214252125456, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.7091
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462336214252125456, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462336214252125456, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462336214252125456, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.121
+      objectReference: {fileID: 0}
     - target: {fileID: 8210128345759175519, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -249,7 +269,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6052630889653676063, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8893786530673128820, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 695fb564ce48cde42a8d9fcecdf01de8, type: 3}
 --- !u!114 &235714224 stripped
 MonoBehaviour:
@@ -13594,8 +13617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a115759c7eaf1ca40b28fb0f85186105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   player1: {fileID: 235714228}
+  player2: {fileID: 0}
 --- !u!4 &1951009930
 Transform:
   m_ObjectHideFlags: 0
