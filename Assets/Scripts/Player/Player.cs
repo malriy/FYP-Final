@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Scripting.APIUpdating;
@@ -36,6 +37,8 @@ public class Player : Singleton<Player>
     [SerializeField] private InventoryUI inventoryUI;
 
     public LayerMask interactableLayer;
+    //[SerializeField] private TextMeshPro interactText;
+    [SerializeField] private TextMeshPro interactText;
 
     protected override void Awake()
     {
@@ -49,13 +52,15 @@ public class Player : Singleton<Player>
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
+        
     }
 
     private void Start()
     {
         OpenInventory();
         playerControls.Combat.Dash.performed += _ => Dash();
-
+        interactText.gameObject.SetActive(false);
+        inventoryUI.gameObject.SetActive(false);
         startingMoveSpeed = moveSpeed;
     }
 
@@ -83,16 +88,24 @@ public class Player : Singleton<Player>
                 {
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
+                animator.SetBool("isMoving", success);
             }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
+        }
 
-            if (movementInput.x < 0)
-            {
-                spriteRenderer.flipX = true;
-            }
-            else if (movementInput.x > 0)
-            {
-                spriteRenderer.flipX = false;
-            }
+        AdjustPlayerFacingDirection();
+        float detectionRadius = 1.5f;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, interactableLayer);
+        if (colliders.Length > 0)
+        {
+            interactText.gameObject.SetActive(true);
+        }
+        else
+        {
+            interactText.gameObject.SetActive(false);
         }
     }
 
@@ -145,7 +158,6 @@ public class Player : Singleton<Player>
 
     void OnFire()
     {
-        animator.SetTrigger("swordAttack");
     }
 
     void OnInteract()
@@ -207,16 +219,28 @@ public class Player : Singleton<Player>
 
     private void Interact()
     {
-        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
-        Debug.Log(facingDir);
-        var interactPos = transform.position + facingDir * 1.5f;
-        Debug.Log(interactPos);
-        Debug.DrawLine(transform.position, interactPos, Color.blue, 5f);
+        float detectionRadius = 1.5f;
 
-        var collider = Physics2D.OverlapCircle(interactPos, 0.5f, interactableLayer);
-        if (collider != null)
+        // Detect colliders in the specified radius around the player
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, interactableLayer);
+
+        if (colliders.Length > 0)
         {
-            collider.GetComponent<Interactable>()?.Interact();
+            Collider2D closestCollider = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (Collider2D collider in colliders)
+            {
+                float distance = Vector2.Distance(transform.position, collider.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestCollider = collider;
+                }
+            }
+
+            // Interact with the closest collider
+            closestCollider?.GetComponent<Interactable>()?.Interact();
         }
     }
 
@@ -242,4 +266,13 @@ public class Player : Singleton<Player>
         isDashing = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ItemWorld itemWorld = collision.gameObject.GetComponent<ItemWorld>();
+        if (itemWorld != null)
+        {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
+    }
 }

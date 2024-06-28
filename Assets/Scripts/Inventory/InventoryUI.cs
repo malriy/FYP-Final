@@ -9,7 +9,7 @@ public class InventoryUI : MonoBehaviour
     private InventoryController inventory;
     private Transform invContainer;
     private Transform invSlot;
-    private PlayerController player;
+    private Player player;
     private PlayerController1 player1;
 
 
@@ -19,7 +19,7 @@ public class InventoryUI : MonoBehaviour
         invSlot = invContainer.Find("InvSlot");
     }
 
-    public void SetPlayer(PlayerController player)
+    public void SetPlayer(Player player)
     {
         this.player = player;
     }
@@ -111,9 +111,11 @@ public class InventoryUI : MonoBehaviour
 
     public void DropItem(Item item)
     {
+        Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position;
+
         Item duplicateItem =  new Item { itemType = item.itemType, amount = item.amount };
         inventory.RemoveItem(item);
-        ItemWorld.DropItem(player.transform.position, duplicateItem);
+        ItemWorld.DropItem(playerInstance, duplicateItem);
 
     }
     public InventoryController GetInventoryController()

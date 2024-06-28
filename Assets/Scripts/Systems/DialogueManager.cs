@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Text nameText;
 
     [SerializeField] int lettersPerSecond;
-
+    private bool isDialogActive = false;
     public static DialogueManager Instance { get; private set; }
     public event Action OnShowDialog;
     public event Action OnHideDialog;
@@ -35,12 +35,15 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator ShowDialog(Dialog dialog)
     {
+        if (isDialogActive) yield break;
+
         yield return new WaitForEndOfFrame();
         OnShowDialog?.Invoke();
 
         this.dialog = dialog;
         nameBox.SetActive(true);
         dialogBox.SetActive(true);
+        isDialogActive = true;
         StartCoroutine(TypeDialog(dialog.Lines[0]));
     }
 
@@ -59,6 +62,7 @@ public class DialogueManager : MonoBehaviour
                 dialogBox.SetActive(false);
                 dialogText.text = string.Empty;
                 currentLine = 0;
+                isDialogActive = false;
                 OnHideDialog?.Invoke();
             }
         }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4144063245022221889}
   - component: {fileID: 25232160816929110}
   - component: {fileID: 5282466139848339530}
-  - component: {fileID: 1304472828705364092}
   - component: {fileID: 7442810622071537368}
   - component: {fileID: 4139708570261498786}
+  - component: {fileID: 5635305179084082966}
   m_Layer: 0
   m_Name: DroneShot
   m_TagString: Projectile
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2043937999
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -320402718, guid: fb062613cf2365e4d9e05c61b6ae4feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -133,23 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.064127535, y: 0.062959135}
   m_EdgeRadius: 0
---- !u!114 &1304472828705364092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906443782711179899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae626850510184e409bbf0c298f88c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Velocity: {x: 0, y: 0}
-  Speed: 7
-  direction: {x: 0, y: 0}
-  Collider: {fileID: 5282466139848339530}
-  Shooter: {fileID: 4062435351499995458, guid: 7b1be3787cf218a48b05d0c178a25da8, type: 3}
 --- !u!95 &7442810622071537368
 Animator:
   serializedVersion: 5
@@ -198,3 +181,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5635305179084082966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906443782711179899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed118f6633480b4da8633f0af0042fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+  particleOnHitPrefabVFX: {fileID: 0}
+  isEnemyProjectile: 1
+  projectileRange: 10

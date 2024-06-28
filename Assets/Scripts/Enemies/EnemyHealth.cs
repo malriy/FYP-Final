@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] public int EnemyID;
     [SerializeField] private int startingHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private float knockBackThrust = 15f;
+    [SerializeField] private Animator animator;
+    [SerializeField] private string deathAnim;
+
+    public delegate void EnemyDiedEventHandler(EnemyHealth enemy);
+    public static event EnemyDiedEventHandler OnEnemyDied;
 
     private int currentHealth;
     private KnockBack knockBack;
@@ -32,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        knockBack.GetKnockedBack(PlayerController1.Instance.transform, knockBackThrust);
+        knockBack.GetKnockedBack((PlayerController1.Instance != null ? PlayerController1.Instance.transform : Player.Instance.transform), knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
     }
@@ -47,8 +53,16 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
-            GetComponent<PickUpSpawner>().DropItems();
+            if (animator != null)
+            {
+                animator.SetTrigger(deathAnim);
+            }
+            else if (deathVFXPrefab != null) 
+            {
+                Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+                GetComponent<PickUpSpawner>().DropItems();
+            }
+            OnEnemyDied?.Invoke(this);
             Destroy(gameObject);
         }
     }

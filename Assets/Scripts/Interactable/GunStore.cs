@@ -5,12 +5,12 @@ using UnityEngine;
 public class GunStore : MonoBehaviour, Interactable
 {
     [SerializeField] private Dialog dialog;
-    public PlayerController player;
+    public Player player;
     public Vector2 newPos;
 
     public void Interact()
     {
-        if (DroneKiller.finished)
+        if (EnochMain.finished)
         {
             Vector2 pos = new Vector2(newPos.x, newPos.y);
             BossAI.startedFight = true;

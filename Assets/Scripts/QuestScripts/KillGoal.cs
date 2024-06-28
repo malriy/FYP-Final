@@ -19,19 +19,19 @@ public class KillGoal : Goal
     public override void Init()
     {
         base.Init();
-        Enemy.OnEnemyDied += EnemyDied;
+        EnemyHealth.OnEnemyDied += EnemyDied;
     }
 
-    void EnemyDied(Enemy enemy)
+    void EnemyDied(EnemyHealth enemy)
     {
-        if (enemy.ID == this.enemyID)
+        if (enemy.EnemyID == this.enemyID)
         {
             this.CurrentAmount++;
             Evaluate();
         }
     }
-    ~KillGoal()
+    private void OnDestroy()
     {
-        Enemy.OnEnemyDied -= EnemyDied;
+        EnemyHealth.OnEnemyDied -= EnemyDied;
     }
 }

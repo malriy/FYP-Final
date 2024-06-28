@@ -47,5 +47,7 @@ MonoBehaviour:
   pfItemWorld: {fileID: 6244511752027775783, guid: 0c0ae713cbea8f742958b1eb6d2fa616, type: 3}
   healthPotSprite: {fileID: -672246555, guid: b71d26ec891e6bb45abff44628cf2cf0, type: 3}
   manaPotSprite: {fileID: -2066306409, guid: b71d26ec891e6bb45abff44628cf2cf0, type: 3}
-  BBKeySprite: {fileID: 985942128, guid: 2971cd63e62dfe14aa6ad8359d6bffaa, type: 3}
-  basketballSprite: {fileID: 535352766, guid: a1602e981807de4419c7c7164d1ad797, type: 3}
+  BBKeySprite: {fileID: 21300000, guid: 405143b6d46f5854db0381a4d7faa720, type: 3}
+  basketballSprite: {fileID: -355648802, guid: 256fb909114f6874bb2fe919286cc819, type: 3}
+  gunKeySprite: {fileID: 1787859879, guid: 2971cd63e62dfe14aa6ad8359d6bffaa, type: 3}
+  lanternSprite: {fileID: 21300000, guid: 69a3b1060e7ae704bb37fda54e67f46a, type: 3}

@@ -11,7 +11,6 @@ public enum GameState
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] PlayerController player;
     [SerializeField] PlayerController1 player1;
     [SerializeField] Player player2;
 
@@ -37,10 +36,6 @@ public class GameController : MonoBehaviour
     {
         if (state == GameState.FreeRoam)
         {
-            if (player != null)
-            {
-                player.HandleUpdate();
-            }
             
             if (player1 != null)
             {

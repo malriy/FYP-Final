@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BrownBuilding : MonoBehaviour, IAdvanced
 {
-    public PlayerController player;
+    public Player player;
     public Vector2 newPos;
     public Dialog dialog;
 

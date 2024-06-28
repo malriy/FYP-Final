@@ -6,11 +6,13 @@ public class StartNPC : NPCController
 {
     private bool hasTalked = false;
     [SerializeField] private Dialog newDialog;
+    [SerializeField] private GameObject bars;
 
     public override void Interact()
     {
         if (hasTalked)
         {
+            bars.SetActive(false);
             StartCoroutine(DialogueManager.Instance.ShowDialog(newDialog));
         }
         else

@@ -16,6 +16,7 @@ public class ItemAssets : MonoBehaviour
     public Sprite manaPotSprite;
     public Sprite BBKeySprite;
     public Sprite basketballSprite;
-
+    public Sprite gunKeySprite;
+    public Sprite lanternSprite;
 
 }

@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool stopMovingWhileAttacking = false;
 
     private bool canAttack = true;
+    public bool shouldRoam = true;
 
     private enum State 
     {
@@ -38,6 +39,7 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         MovementStateControl();
+        Debug.Log($"Enemy State: {state}");
     }
 
     private void MovementStateControl()
@@ -58,18 +60,20 @@ public class EnemyAI : MonoBehaviour
     {
         timeRoaming += Time.deltaTime;
 
-        enemyPathfinding.MoveTo(roamPosition);
-        if (Vector2.Distance(transform.position, PlayerController1.Instance.transform.position) < attackRange){
+        if (shouldRoam) { enemyPathfinding.MoveTo(roamPosition); }
+        if (Vector2.Distance(transform.position, (PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position)) < attackRange)
+        {
             state = State.Attacking;
         }
-        
-        if(timeRoaming >= roamChangeDirFloat){
+
+
+        if (timeRoaming >= roamChangeDirFloat){
             roamPosition = GetRoamingPosition();
         }
     }
 
     private void Attacking(){
-        if (Vector2.Distance(transform.position, PlayerController1.Instance.transform.position) > attackRange)
+        if (Vector2.Distance(transform.position, (PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position)) > attackRange)
         {
             state = State.Roaming;
         }
