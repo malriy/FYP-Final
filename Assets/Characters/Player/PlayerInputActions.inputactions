@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "04c51be1-f5be-4f54-a238-d9c9d2e2eb77",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Look",
                     "type": "Value",
                     "id": "381da5c1-0fe1-4324-b2ed-ef2cd3b2c3eb",
@@ -45,15 +54,6 @@
                     "name": "OpenInv",
                     "type": "Button",
                     "id": "cf474d04-2bf9-402d-85f6-4bbf58422b34",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Dash",
-                    "type": "Button",
-                    "id": "04c51be1-f5be-4f54-a238-d9c9d2e2eb77",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -314,17 +314,6 @@
                 },
                 {
                     "name": "",
-                    "id": "8b595431-583a-4df7-91be-4fb654e9eff9",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6aaaed92-09aa-49d2-9c2b-e8f8518a8312",
                     "path": "<Keyboard>/1",
                     "interactions": "",
@@ -375,6 +364,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b595431-583a-4df7-91be-4fb654e9eff9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

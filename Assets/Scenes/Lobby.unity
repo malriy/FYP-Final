@@ -2379,7 +2379,7 @@ PrefabInstance:
     - target: {fileID: 3584885257236029676, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: interactText
       value: 
-      objectReference: {fileID: 1891031129}
+      objectReference: {fileID: 676654761}
     - target: {fileID: 4767152123238138524, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2455,8 +2455,22 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4625885650841976468, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+--- !u!114 &676654761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9083905379771377370, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+  m_PrefabInstance: {fileID: 676654760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &748083089
 GameObject:
   m_ObjectHideFlags: 0
@@ -4251,6 +4265,10 @@ MonoBehaviour:
       line: These two rooms represent the fears you harbor
     - speaker: Alex
       line: Fight them. As hard as they may be.
+  newDialog:
+    lines:
+    - speaker: Alex
+      line: AUGH
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1
@@ -4259,7 +4277,6 @@ MonoBehaviour:
   player: {fileID: 0}
   gifts: []
   animator: {fileID: 0}
-  moving: 0
   newDialog:
     lines:
     - speaker: Alex
@@ -11516,17 +11533,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!114 &1891031129 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5823488381511350244, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-  m_PrefabInstance: {fileID: 676654760}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2019882145
 GameObject:
   m_ObjectHideFlags: 0

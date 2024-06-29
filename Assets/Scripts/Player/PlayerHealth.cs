@@ -16,6 +16,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private KnockBack knockback;
     private Flash flash;
 
+    [SerializeField] private Animator animator;
+
     protected override void Awake (){
         base.Awake();
 
@@ -39,7 +41,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     public void HealPlayer(){
         if(currentHealth < maxHealth){
-            currentHealth += 1;
+            currentHealth += 3;
             UpdateHealthSlider();
         }
     }
@@ -59,7 +61,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private void CheckIfPlayerDeath(){
         if (currentHealth <= 0){
             currentHealth = 0;
-            Debug.Log("Player is dead");
+            animator.SetTrigger("playerDeath");
+
+            if (Player.Instance.gameObject.activeInHierarchy)
+            {
+                Player.Instance.moveSpeed = 0;
+                BossAI.startedFight = false;
+            }
+            if (PlayerController1.Instance.gameObject.activeInHierarchy)
+            {
+                PlayerController1.Instance.moveSpeed = 0;
+                BossAI.startedFight = false;
+
+            }
         }
     }
 

@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
         DialogueManager.Instance.OnShowDialog += () =>
         {
             state = GameState.Dialog;
+            if (player2 != null) { Player.Instance.interactText.gameObject.SetActive(false); }
+            if (player1 != null) { PlayerController1.Instance.interactText.gameObject.SetActive(false); }
         };
         DialogueManager.Instance.OnHideDialog += () =>
         {
@@ -36,7 +38,6 @@ public class GameController : MonoBehaviour
     {
         if (state == GameState.FreeRoam)
         {
-            
             if (player1 != null)
             {
                 player1.Update();

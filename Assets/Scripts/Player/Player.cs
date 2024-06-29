@@ -12,7 +12,7 @@ public class Player : Singleton<Player>
     public PlayerHealth stats;
     private Stamina stamina;
 
-    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] public float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
@@ -29,7 +29,6 @@ public class Player : Singleton<Player>
     public ContactFilter2D movementFilter;
     public float collisionOffset = 0.05f;
 
-
     private bool facingLeft = false;
     private bool isDashing = false;
 
@@ -39,7 +38,7 @@ public class Player : Singleton<Player>
 
     public LayerMask interactableLayer;
     //[SerializeField] private TextMeshPro interactText;
-    [SerializeField] private TextMeshPro interactText;
+    [SerializeField] public TextMeshPro interactText;
 
     protected override void Awake()
     {

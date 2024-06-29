@@ -13,6 +13,13 @@ public class DamageSource : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other){
         EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-        enemyHealth?.TakeDamage(damageAmount);
+        if (enemyHealth != null) { enemyHealth?.TakeDamage(damageAmount); }
+        
+        BossStats stats = other.GetComponent<BossStats>();
+        if (stats != null)
+        {
+            Debug.Log("Boss take damage");
+            stats?.TakeDamage(damageAmount);
+        }
     }
 }

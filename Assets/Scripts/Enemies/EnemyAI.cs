@@ -39,7 +39,6 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         MovementStateControl();
-        Debug.Log($"Enemy State: {state}");
     }
 
     private void MovementStateControl()

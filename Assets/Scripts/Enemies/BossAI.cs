@@ -20,6 +20,7 @@ public class BossAI : MonoBehaviour
 	public float lastAttackTime = 0f;
 
 	[SerializeField] private Animator animator, attackAnimator;
+	[SerializeField] private GameObject healthSlider;
 	public GameObject rocketPrefab;
 	public Transform rocketPos;
 	public GameObject fireHitbox;
@@ -84,6 +85,7 @@ public class BossAI : MonoBehaviour
 	{
 		if (startedFight)
 		{
+			healthSlider.SetActive(true);
 			currentState = State.Chase;
 		}
 	}
@@ -128,10 +130,6 @@ public class BossAI : MonoBehaviour
 	// Ranged Attack
 	private IEnumerator Attack1()
 	{
-		Debug.Log("Boss performs Attack 1!");
-
-		// Attack 1 logic here, e.g., reduce player health
-		// Example: player.GetComponent<PlayerHealth>().TakeDamage(damage);
 		attackAnimator.SetTrigger("attack1");
 		yield return new WaitForSeconds(attackCooldown);
 		isAttacking = false;
@@ -152,13 +150,13 @@ public class BossAI : MonoBehaviour
     private bool playerInHitbox = false;
     private IEnumerator Attack2()
 	{
-		Debug.Log("Boss performs Attack 2!");
 		attackAnimator.SetTrigger("attack2");
 
 		if (playerInHitbox)
 		{
-			Debug.Log("flamed");
-		}
+            PlayerHealth health = Player.Instance.GetComponent<PlayerHealth>();
+			health.TakeDamage(5, transform);
+        }
 
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;

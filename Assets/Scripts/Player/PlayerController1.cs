@@ -12,7 +12,7 @@ public class PlayerController1 : Singleton<PlayerController1>
     public PlayerHealth stats;
     private Stamina stamina;
 
-    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] public float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
@@ -34,7 +34,7 @@ public class PlayerController1 : Singleton<PlayerController1>
 
     public LayerMask interactableLayer;
     //[SerializeField] private TextMeshPro interactText;
-    [SerializeField] private TextMeshPro interactText;
+    [SerializeField] public TextMeshPro interactText;
 
     protected override void Awake()
     {

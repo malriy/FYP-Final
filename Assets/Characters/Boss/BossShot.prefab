@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2043937999
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1828362925, guid: fb062613cf2365e4d9e05c61b6ae4feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -194,9 +194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0}
-  Speed: 8
   direction: {x: 0, y: 0}
   Collider: {fileID: 5282466139848339530}
-  Shooter: {fileID: 5306351740113905750, guid: 3ecf9ac321399f84d860de4149859efb, type: 3}
+  Shooter: {fileID: 4658156343951110513, guid: fd9773723b385ee41b2313b03a001b86, type: 3}
   animator: {fileID: 7442810622071537368}
   explosionPrefab: {fileID: 4128477924382706001, guid: ded644837724d01499448ddccf275e80, type: 3}
+  rocketDamage: 1

@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossStats : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-
-    public int damage = 20;
-    public float speed = 2f;
+    private Slider slider;
 
     public Animator animator;
     public GameObject head;
+    [SerializeField] private Flash flash;
+    [SerializeField] private Flash headFlash;
+
+
+    private bool canTakeDamage = true;
+    [SerializeField] private float damageRecoveryTime = 1f;
 
     void Start()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+
+        slider.gameObject.SetActive(false);
+        UpdateHealthSlider();
     }
 
     void Update()
@@ -26,13 +34,37 @@ public class BossStats : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (!canTakeDamage) { return; }
         currentHealth -= amount;
-        animator.SetTrigger("Hurt");
+
+        StartCoroutine(flash.FlashRoutine());
+        StartCoroutine(headFlash.FlashRoutine());
+
+        canTakeDamage = false;
+        StartCoroutine(damageRecoveryRoutine());
+        UpdateHealthSlider();
 
         if (currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    private void UpdateHealthSlider()
+    {
+        if (slider == null)
+        {
+            slider = GameObject.Find("BossSlider").GetComponent<Slider>();
+        }
+
+        slider.maxValue = maxHealth;
+        slider.value = currentHealth;
+    }
+
+    private IEnumerator damageRecoveryRoutine()
+    {
+        yield return new WaitForSeconds(damageRecoveryTime);
+        canTakeDamage = true;
     }
 
     private void Die()
@@ -49,15 +81,5 @@ public class BossStats : MonoBehaviour
     public int GetHealth()
     {
         return currentHealth;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public float GetSpeed()
-    {
-        return speed;
     }
 }

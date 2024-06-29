@@ -1627,10 +1627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c2adeb7ab67ca4185000cc9aa54c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 20
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
   currentHealth: 0
+  animator: {fileID: 2309948584558225391}
 --- !u!114 &501448039973405742
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossProjectile : MonoBehaviour
 {
     public Vector2 Velocity;
-    public float Speed;
+    public static float Speed = 7f;
     public Vector2 direction;
     public BoxCollider2D Collider;
     public GameObject Shooter;
@@ -14,6 +14,8 @@ public class BossProjectile : MonoBehaviour
     private Vector3 destination;
     private Player player;
     [SerializeField] private GameObject explosionPrefab;
+    public int rocketDamage;
+
 
     public BossProjectile(GameObject shooter, Vector2 dir)
     {
@@ -72,6 +74,9 @@ public class BossProjectile : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            PlayerHealth playerHealth = Player.Instance.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(rocketDamage, Shooter.transform);
+            Debug.Log("Hit player");
             OnHit();
         }
     }

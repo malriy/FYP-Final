@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Text nameText;
 
     [SerializeField] int lettersPerSecond;
-    private bool isDialogActive = false;
+    public bool isDialogActive = false;
     public static DialogueManager Instance { get; private set; }
     public event Action OnShowDialog;
     public event Action OnHideDialog;
