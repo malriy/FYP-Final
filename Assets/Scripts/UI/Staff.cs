@@ -10,6 +10,8 @@ public class Staff : MonoBehaviour, IWeapon
     [SerializeField] private Transform magiclaserSpawnPoint;
 
     private Animator myAnimator;
+    [SerializeField] private Player player;
+
 
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
 
@@ -39,7 +41,7 @@ public class Staff : MonoBehaviour, IWeapon
     private void MouseFollowWithOffset()
     {
         Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint((PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position));
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint((PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : player.transform.position));
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 

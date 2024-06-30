@@ -144,7 +144,7 @@ public class QuestGiver : NPCController
         CollectionGoal collectionGoal = quest.Goals.Find(goal => goal is CollectionGoal) as CollectionGoal;
         if (collectionGoal != null)
         {
-            var playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.inventory : Player.Instance.inventory;
+            var playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.inventory : player.inventory;
             playerInstance.RemoveItem(new Item { itemType = collectionGoal.requiredItem, amount = collectionGoal.RequiredAmount });
         }
     }

@@ -23,7 +23,7 @@ public class BossStats : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
 
-        slider.gameObject.SetActive(false);
+        //slider.gameObject.SetActive(false);
         UpdateHealthSlider();
     }
 

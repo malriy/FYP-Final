@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float knockBackThrust = 15f;
     [SerializeField] private Animator animator;
     [SerializeField] private string deathAnim;
+    [SerializeField] private Player player;
 
     public delegate void EnemyDiedEventHandler(EnemyHealth enemy);
     public static event EnemyDiedEventHandler OnEnemyDied;
@@ -38,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        knockBack.GetKnockedBack((PlayerController1.Instance != null ? PlayerController1.Instance.transform : Player.Instance.transform), knockBackThrust);
+        knockBack.GetKnockedBack((PlayerController1.Instance != null ? PlayerController1.Instance.transform : player.transform), knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
     }

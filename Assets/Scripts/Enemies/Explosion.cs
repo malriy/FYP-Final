@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    [SerializeField] private Player player;
     private void Destroy()
     {
         Destroy(gameObject);
@@ -13,7 +14,7 @@ public class Explosion : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = Player.Instance.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(1, transform);
         }
     }

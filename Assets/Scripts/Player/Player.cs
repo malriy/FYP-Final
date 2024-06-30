@@ -6,10 +6,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Scripting.APIUpdating;
 
-public class Player : Singleton<Player>
+public class Player : MonoBehaviour
 {
     public bool FacingLeft { get { return facingLeft; } }
-    public PlayerHealth stats;
+    public PlayerHealth1 stats;
     private Stamina stamina;
 
     [SerializeField] public float moveSpeed = 1f;
@@ -40,9 +40,8 @@ public class Player : Singleton<Player>
     //[SerializeField] private TextMeshPro interactText;
     [SerializeField] public TextMeshPro interactText;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
 
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
@@ -60,7 +59,7 @@ public class Player : Singleton<Player>
         OpenInventory();
         playerControls.Combat.Dash.performed += _ => Dash();
         interactText.gameObject.SetActive(false);
-        inventoryUI.gameObject.SetActive(false);
+        //inventoryUI.gameObject.SetActive(false);
         startingMoveSpeed = moveSpeed;
     }
 
@@ -246,9 +245,9 @@ public class Player : Singleton<Player>
 
     private void Dash()
     {
-        if (!isDashing && Stamina.Instance.CurrentStamina > 0)
+        if (!isDashing && stamina.CurrentStamina > 0)
         {
-            Stamina.Instance.UseStamina();
+            stamina.UseStamina();
             isDashing = true;
             moveSpeed *= dashSpeed;
             myTrailRenderer.emitting = true;

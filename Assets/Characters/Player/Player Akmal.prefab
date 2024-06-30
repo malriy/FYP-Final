@@ -1381,9 +1381,9 @@ GameObject:
   - component: {fileID: 2730330558488919787}
   - component: {fileID: 2309948584558225391}
   - component: {fileID: 4992890821181105819}
-  - component: {fileID: 4808499495590761079}
   - component: {fileID: 501448039973405742}
   - component: {fileID: 8937566888175075047}
+  - component: {fileID: 7780661447320531294}
   - component: {fileID: 5456842447895047431}
   m_Layer: 0
   m_Name: Player Akmal
@@ -1477,11 +1477,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf826f7172a27b147970c2e6fb1f19b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 4808499495590761079}
+  stats: {fileID: 7780661447320531294}
   moveSpeed: 5
   dashSpeed: 4
   myTrailRenderer: {fileID: 68417433074485264}
-  weaponCollider: {fileID: 2178074169939757266}
+  weaponCollider: {fileID: 0}
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -1615,23 +1615,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.002185467, y: -0.07319262}
   m_Size: {x: 0.09386835, y: 0.024704937}
   m_Direction: 1
---- !u!114 &4808499495590761079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8210128345759175519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c2adeb7ab67ca4185000cc9aa54c60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  knockBackThrustAmount: 10
-  damageRecoveryTime: 1
-  currentHealth: 0
-  animator: {fileID: 2309948584558225391}
 --- !u!114 &501448039973405742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1659,6 +1642,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackTime: 0.2
+--- !u!114 &7780661447320531294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210128345759175519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887ca147be09db44bac93086ad6b051f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  knockBackThrustAmount: 10
+  damageRecoveryTime: 1
+  player: {fileID: 3584885257236029676}
+  currentHealth: 0
+  animator: {fileID: 2309948584558225391}
 --- !u!114 &5456842447895047431
 MonoBehaviour:
   m_ObjectHideFlags: 0

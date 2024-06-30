@@ -79,7 +79,7 @@ public class Pickup : MonoBehaviour
             case PickupType.GoldCoin:
                 break;
             case PickupType.StaminaGlobe:
-                Stamina.Instance.RefreshStamina();
+                //Stamina.Instance.RefreshStamina();
                 break;
             case PickupType.HealthGlobe:
                 PlayerHealth.Instance.HealPlayer();

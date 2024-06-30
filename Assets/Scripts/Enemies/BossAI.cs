@@ -21,7 +21,8 @@ public class BossAI : MonoBehaviour
 
 	[SerializeField] private Animator animator, attackAnimator;
 	[SerializeField] private GameObject healthSlider;
-	public GameObject rocketPrefab;
+
+    public GameObject rocketPrefab;
 	public Transform rocketPos;
 	public GameObject fireHitbox;
 
@@ -57,8 +58,6 @@ public class BossAI : MonoBehaviour
 		{
 			speed = 2f;
 		}
-
-        Debug.Log($"Cur State: {currentState}");
 	}
 
 	private IEnumerator StateMachine()
@@ -154,7 +153,7 @@ public class BossAI : MonoBehaviour
 
 		if (playerInHitbox)
 		{
-            PlayerHealth health = Player.Instance.GetComponent<PlayerHealth>();
+            PlayerHealth health = player.GetComponent<PlayerHealth>();
 			health.TakeDamage(5, transform);
         }
 

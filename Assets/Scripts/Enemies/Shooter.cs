@@ -10,6 +10,8 @@ public class Shooter : MonoBehaviour, IEnemy
     [SerializeField] private float timeBetweenBursts;
     [SerializeField] private float restTime = 1f;
     [SerializeField] private Transform shotPos;
+    [SerializeField] private Player player;
+
 
     private bool isShooting = false;
     public void Attack() {  
@@ -37,7 +39,7 @@ public class Shooter : MonoBehaviour, IEnemy
     }
 
     private void ShootBullet() {
-        Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position;
+        Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : player.transform.position;
         Vector2 targetDirection = playerInstance - transform.position;
 
         Vector3 shootLocation = shotPos != null ? shotPos.position : transform.position;

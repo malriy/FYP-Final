@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour, IWeapon
     [SerializeField] private Transform slashAnimSpawnPoint;
     [SerializeField] private float swordAttackCD = 0.5f;
     [SerializeField] private WeaponInfo weaponInfo;
+    [SerializeField] private Player player;
 
     private Transform weaponCollider;
     private Animator myAnimator;
@@ -21,7 +22,8 @@ public class Sword : MonoBehaviour, IWeapon
 
     private void Start()
     {
-        weaponCollider = PlayerController1.Instance != null ? PlayerController1.Instance.GetWeaponCollider() : Player.Instance.GetWeaponCollider();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        weaponCollider = player != null ? player.GetWeaponCollider() : PlayerController1.Instance.GetWeaponCollider();
         slashAnimSpawnPoint = GameObject.Find("SlashSpawnPoint").transform;
     }
 
@@ -52,20 +54,20 @@ public class Sword : MonoBehaviour, IWeapon
     {
         slashAnim.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
 
-        slashAnim.GetComponent<SpriteRenderer>().flipX = PlayerController1.Instance != null ? PlayerController1.Instance.FacingLeft : Player.Instance.FacingLeft;
+        slashAnim.GetComponent<SpriteRenderer>().flipX = PlayerController1.Instance != null ? PlayerController1.Instance.FacingLeft : player.FacingLeft;
     }
 
     public void SwingDownFlipAnimEvent() 
     {
         slashAnim.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        slashAnim.GetComponent<SpriteRenderer>().flipX = PlayerController1.Instance != null ? PlayerController1.Instance.FacingLeft : Player.Instance.FacingLeft;
+        slashAnim.GetComponent<SpriteRenderer>().flipX = PlayerController1.Instance != null ? PlayerController1.Instance.FacingLeft : player.FacingLeft;
     }
 
     private void MouseFollowWithOffset() 
     {
         Vector3 mousePos = Input.mousePosition;
-        var playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position ;
+        var playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : player.transform.position ;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerInstance);
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;

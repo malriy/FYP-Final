@@ -31,19 +31,37 @@ public class InventoryUI : MonoBehaviour
 
     public void SetInventory(InventoryController inventory)
     {
-        this.inventory = inventory;
+        if (this.inventory != null)
+        {
+            InventoryController.OnItemAdded -= Inventory_OnItemListChanged;
+        }
 
+        this.inventory = inventory;
         InventoryController.OnItemAdded += Inventory_OnItemListChanged;
         RefreshInvItems();
+    }
+    private void OnDestroy()
+    {
+        // Unsubscribe from the event when this object is destroyed
+        if (inventory != null)
+        {
+            InventoryController.OnItemAdded -= Inventory_OnItemListChanged;
+        }
     }
 
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
     {
+        foreach (Item i in inventory.GetItems())
+        {
+            Debug.Log($"Items in inv: {i.itemType} {i.amount}");
+        }
         RefreshInvItems();
     }
 
     private void RefreshInvItems()
     {
+        if (invContainer == null || invSlot == null) return;
+
         foreach (Transform child in invContainer)
         {
             if (child == invSlot) continue;
@@ -111,7 +129,7 @@ public class InventoryUI : MonoBehaviour
 
     public void DropItem(Item item)
     {
-        Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : Player.Instance.transform.position;
+        Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : player.transform.position;
 
         Item duplicateItem =  new Item { itemType = item.itemType, amount = item.amount };
         inventory.RemoveItem(item);

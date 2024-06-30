@@ -9,7 +9,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] public int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
-    
+    [SerializeField] private Player player;
+
     private Slider healthSlider;
     public int currentHealth;
     private bool canTakeDamage = true;
@@ -63,9 +64,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
             currentHealth = 0;
             animator.SetTrigger("playerDeath");
 
-            if (Player.Instance.gameObject.activeInHierarchy)
+            if (player.gameObject.activeInHierarchy)
             {
-                Player.Instance.moveSpeed = 0;
+                player.moveSpeed = 0;
                 BossAI.startedFight = false;
             }
             if (PlayerController1.Instance.gameObject.activeInHierarchy)

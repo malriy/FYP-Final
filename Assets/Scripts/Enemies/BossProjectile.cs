@@ -74,7 +74,7 @@ public class BossProjectile : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = Player.Instance.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(rocketDamage, Shooter.transform);
             Debug.Log("Hit player");
             OnHit();

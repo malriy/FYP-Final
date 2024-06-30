@@ -6,6 +6,7 @@ using Cinemachine;
 public class CameraController : Singleton<CameraController>
 {
     private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] private Player player;
 
     public void SetPlayerCameraFollow() {
         cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
@@ -15,6 +16,6 @@ public class CameraController : Singleton<CameraController>
     public void SetPlayerAkmalCameraFollow()
     {
         cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        cinemachineVirtualCamera.Follow = Player.Instance.transform;
+        cinemachineVirtualCamera.Follow = player.transform;
     }
 }
