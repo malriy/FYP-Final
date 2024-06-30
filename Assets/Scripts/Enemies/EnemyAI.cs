@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     private bool canAttack = true;
     public bool shouldRoam = true;
     [SerializeField] private Player player;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private enum State 
     {
@@ -36,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     {
         roamPosition = GetRoamingPosition();
         player = GameObject.Find("Player").GetComponent<Player>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -77,6 +79,18 @@ public class EnemyAI : MonoBehaviour
         if (Vector2.Distance(transform.position, (PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : player.transform.position)) > attackRange)
         {
             state = State.Roaming;
+        }
+
+        if (player != null)
+        {
+            if (player.transform.position.x < gameObject.transform.position.x)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
         }
 
         if (attackRange != 0 && canAttack)

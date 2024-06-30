@@ -12,7 +12,9 @@ public class Item
         BrownBuildingKey,
         Basketball,
         GunStoreKey,
-        Lantern
+        Lantern,
+        IceCream,
+        GymCard
     }
 
     public ItemType itemType;
@@ -29,6 +31,8 @@ public class Item
             case ItemType.Basketball:       return ItemAssets.Instance.basketballSprite;
             case ItemType.GunStoreKey:      return ItemAssets.Instance.gunKeySprite;
             case ItemType.Lantern:          return ItemAssets.Instance.lanternSprite;
+            case ItemType.IceCream:         return ItemAssets.Instance.iceCreamSprite;
+            case ItemType.GymCard:          return ItemAssets.Instance.GymCardSprite;
         }
     }
 
@@ -44,6 +48,8 @@ public class Item
             case ItemType.Basketball:
             case ItemType.GunStoreKey:
             case ItemType.Lantern:
+            case ItemType.IceCream:
+            case ItemType.GymCard:
                 return false;
         }
     }

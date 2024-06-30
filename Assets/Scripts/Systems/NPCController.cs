@@ -18,7 +18,7 @@ public class NPCController : MonoBehaviour, Interactable
     [SerializeField] private float roamSpeed = 1f; // Speed of roaming
     [SerializeField] private float roamDelay = 2f; // Delay between roaming movements
 
-    [Header("Assign Player if NPC gift something")]
+    [Header("Assign Player if NPC gift something or item quest")]
     public PlayerController1 player1;
     public Player player;
     [SerializeField] private List<RewardItems> gifts;

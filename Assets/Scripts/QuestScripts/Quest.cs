@@ -10,16 +10,22 @@ public class Quest : MonoBehaviour
     public string questName;
     public string description;
     public bool isCompleted;
-    public static bool finished;
 
+    public static Dictionary<string, bool> questCompletionStatus = new Dictionary<string, bool>();
     public event Action OnQuestCompleted;
+
+    private void Start()
+    {
+        // Initialize the quest completion status in the dictionary
+        questCompletionStatus[questName] = false;
+    }
 
     public void CheckGoals()
     {
         isCompleted = Goals.All(g => g.Completed);
-        finished = isCompleted;
         if (isCompleted)
         {
+            questCompletionStatus[questName] = true;
             OnQuestCompleted?.Invoke();
         }
     }
@@ -27,5 +33,10 @@ public class Quest : MonoBehaviour
     public virtual void PostQuest()
     {
 
+    }
+
+    public static bool IsQuestFinished(string questName)
+    {
+        return questCompletionStatus.ContainsKey(questName) && questCompletionStatus[questName];
     }
 }

@@ -291,6 +291,7 @@ MonoBehaviour:
   attackCooldown: 2
   stopMovingWhileAttacking: 1
   shouldRoam: 1
+  player: {fileID: 0}
 --- !u!114 &3973868439503150051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,9 +307,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 906443782711179899, guid: 21a365fb3693e4f49bfc328026edf5ef, type: 3}
   bulletMoveSpeed: 7
   burstCount: 2
-  timeBetweenBursts: 0.3
-  restTime: 0.5
+  timeBetweenBursts: 0.1
+  restTime: 0.1
   shotPos: {fileID: 9005572989299215481}
+  player: {fileID: 0}
 --- !u!114 &171798113448430079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +342,7 @@ MonoBehaviour:
   knockBackThrust: 15
   animator: {fileID: 5018097201089749022}
   deathAnim: droneDeath
+  player: {fileID: 0}
 --- !u!114 &5783322128342896684
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,10 @@ public class Shooter : MonoBehaviour, IEnemy
     [SerializeField] private Transform shotPos;
     [SerializeField] private Player player;
 
-
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Player>();
+    }
     private bool isShooting = false;
     public void Attack() {  
         if (!isShooting){

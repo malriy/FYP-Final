@@ -102,7 +102,6 @@ public class QuestGiver : NPCController
         else
         {
             StartCoroutine(DialogueManager.Instance.ShowDialog(incompleteDialog));
-
         }
     }
 
@@ -144,7 +143,7 @@ public class QuestGiver : NPCController
         CollectionGoal collectionGoal = quest.Goals.Find(goal => goal is CollectionGoal) as CollectionGoal;
         if (collectionGoal != null)
         {
-            var playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.inventory : player.inventory;
+            var playerInstance = player != null ? player.inventory : PlayerController1.Instance.inventory;
             playerInstance.RemoveItem(new Item { itemType = collectionGoal.requiredItem, amount = collectionGoal.RequiredAmount });
         }
     }

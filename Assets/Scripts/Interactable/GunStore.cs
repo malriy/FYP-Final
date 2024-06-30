@@ -10,16 +10,15 @@ public class GunStore : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        //if (EnochMain.finished)
-        //{
+        if (Quest.IsQuestFinished("EnochMain"))
+        {
             Vector2 pos = new Vector2(newPos.x, newPos.y);
-            BossAI.startedFight = true;
 
-            player.transform.position = pos;
-        //}
-        //else
-        //{
-        //    StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
-        //}
+        player.transform.position = pos;
+        }
+        else
+        {
+            StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
+        }
     }
 }

@@ -33,13 +33,14 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
         currentHealth = startingHealth;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        knockBack.GetKnockedBack((PlayerController1.Instance != null ? PlayerController1.Instance.transform : player.transform), knockBackThrust);
+        knockBack.GetKnockedBack(player != null ? player.transform : PlayerController1.Instance.transform, knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
     }
