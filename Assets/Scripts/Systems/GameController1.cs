@@ -25,12 +25,12 @@ public class GameController1 : MonoBehaviour
 
     private void Start()
     {
-        DialogueManager.Instance.OnShowDialog += () =>
+        DialogueManager1.Instance.OnShowDialog += () =>
         {
             state = GameState.Dialog;
             if (player1 != null) { PlayerController1.Instance.interactText.gameObject.SetActive(false); }
         };
-        DialogueManager.Instance.OnHideDialog += () =>
+        DialogueManager1.Instance.OnHideDialog += () =>
         {
             if (state == GameState.Dialog)
             {
@@ -50,7 +50,7 @@ public class GameController1 : MonoBehaviour
         }
         else if (state == GameState.Dialog)
         {
-            DialogueManager.Instance.HandleUpdate();
+            DialogueManager1.Instance.HandleUpdate();
         }
     }
 }

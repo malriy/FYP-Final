@@ -2120,6 +2120,7 @@ GameObject:
   - component: {fileID: 656561996}
   - component: {fileID: 656561995}
   - component: {fileID: 656561997}
+  - component: {fileID: 656561998}
   m_Layer: 6
   m_Name: SchoolLevel
   m_TagString: Untagged
@@ -2341,6 +2342,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &656561998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656561993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57770fe979d9f484da9db78622357e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &663053824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8190155513350785973, guid: 9d076312de9af244e80dad0b7129d823, type: 3}

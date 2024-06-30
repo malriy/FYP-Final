@@ -79,7 +79,15 @@ public class Pickup : MonoBehaviour
             case PickupType.GoldCoin:
                 break;
             case PickupType.StaminaGlobe:
-                //Stamina.Instance.RefreshStamina();
+                Stamina stamina = FindObjectOfType<Stamina>();
+                if (stamina != null)
+                {
+                    stamina.RefreshStamina();
+                }
+                else
+                {
+                    Debug.LogError("Stamina component not found in the scene.");
+                }
                 break;
             case PickupType.HealthGlobe:
                 PlayerHealth.Instance.HealPlayer();
