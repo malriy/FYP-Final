@@ -49,14 +49,14 @@ public class PlayerController1 : Singleton<PlayerController1>
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
-        inventoryUI.gameObject.SetActive(false);
     }
 
     private void Start()
     {
         OpenInventory();
         playerControls.Combat.Dash.performed += _ => Dash();
-
+        interactText.gameObject.SetActive(false);
+        inventoryUI.gameObject.SetActive(false);
         startingMoveSpeed = moveSpeed;
     }
 

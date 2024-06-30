@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public enum GameState
 {
     FreeRoam,
@@ -14,8 +13,22 @@ public class GameController : MonoBehaviour
     [SerializeField] PlayerController1 player1;
     [SerializeField] Player player2;
 
+    public static GameController Instance { get; private set; }
 
     GameState state;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
