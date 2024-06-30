@@ -18,16 +18,23 @@ public class DialogueManager : MonoBehaviour
     public event Action OnShowDialog;
     public event Action OnHideDialog;
 
-    public void Awake()
+    private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
     {
         nameBox.SetActive(false);
     }
-
 
     Dialog dialog;
     int currentLine = 0;
@@ -68,7 +75,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         TriggerEvent.OnTrigger -= HandleUpdate;
     }
@@ -78,10 +85,10 @@ public class DialogueManager : MonoBehaviour
         isTyping = true;
         nameText.text = dialogLine.speaker;
         dialogText.text = "";
-        foreach(var letter in dialogLine.line.ToCharArray())
+        foreach (var letter in dialogLine.line.ToCharArray())
         {
             dialogText.text += letter;
-            yield return new WaitForSeconds(1f/lettersPerSecond);
+            yield return new WaitForSeconds(1f / lettersPerSecond);
         }
         isTyping = false;
     }

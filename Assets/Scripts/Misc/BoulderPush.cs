@@ -6,6 +6,7 @@ public class PushableBoulder : MonoBehaviour
     private Rigidbody2D rb;
     private bool isPushing = false;
     private Vector2 pushDirection;
+    private bool isStoppedByBoulder = false;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class PushableBoulder : MonoBehaviour
 
     void Update()
     {
-        if (isPushing)
+        if (isPushing && !isStoppedByBoulder)
         {
             rb.velocity = pushDirection * pushForce;
         }
@@ -26,12 +27,12 @@ public class PushableBoulder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            pushDirection = (collision.transform.position - transform.position).normalized;
+            pushDirection = (transform.position - collision.transform.position).normalized;
             isPushing = true;
         }
         else if (collision.gameObject.CompareTag("Boulder"))
         {
-            rb.velocity = Vector2.zero; // Stop the boulder if hit by another boulder
+            StopBothBoulders(collision);
         }
     }
 
@@ -39,12 +40,12 @@ public class PushableBoulder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            pushDirection = (collision.transform.position - transform.position).normalized;
+            pushDirection = (transform.position - collision.transform.position).normalized;
             isPushing = true;
         }
         else if (collision.gameObject.CompareTag("Boulder"))
         {
-            rb.velocity = Vector2.zero; // Stop the boulder if hit by another boulder
+            StopBothBoulders(collision);
         }
     }
 
@@ -54,6 +55,33 @@ public class PushableBoulder : MonoBehaviour
         {
             isPushing = false;
             rb.velocity = Vector2.zero; // Stop the boulder when not pushing
+        }
+        else if (collision.gameObject.CompareTag("Boulder"))
+        {
+            isStoppedByBoulder = false;
+            // Reset the other boulder's state if it was stopped by this one
+            PushableBoulder otherBoulder = collision.gameObject.GetComponent<PushableBoulder>();
+            if (otherBoulder != null)
+            {
+                otherBoulder.isStoppedByBoulder = false;
+                otherBoulder.rb.velocity = Vector2.zero;
+            }
+        }
+    }
+
+    private void StopBothBoulders(Collision2D collision)
+    {
+        rb.velocity = Vector2.zero; // Stop this boulder
+        isPushing = false;
+        isStoppedByBoulder = true;
+
+        // Stop the other boulder
+        PushableBoulder otherBoulder = collision.gameObject.GetComponent<PushableBoulder>();
+        if (otherBoulder != null)
+        {
+            otherBoulder.isPushing = false;
+            otherBoulder.isStoppedByBoulder = true;
+            otherBoulder.rb.velocity = Vector2.zero;
         }
     }
 }

@@ -11364,7 +11364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a15d2a075435e42bb273faf4cbf6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Scene2
+  sceneToLoad: Scene1
   sceneTransitionName: EEntry
 --- !u!61 &2074674148
 BoxCollider2D:
@@ -11547,7 +11547,7 @@ SpriteRenderer:
   m_SortingLayerID: -2025560845
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -689436333, guid: 9a262c0bf45bff64795f8caa9e9153a6, type: 3}
+  m_Sprite: {fileID: -1653008968, guid: 9a262c0bf45bff64795f8caa9e9153a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -12924,8 +12924,6 @@ GameObject:
   - component: {fileID: 476700325667235428}
   - component: {fileID: 3816031954580696259}
   - component: {fileID: 7012604635882145670}
-  - component: {fileID: 7012604635882145671}
-  - component: {fileID: 7012604635882145672}
   m_Layer: 6
   m_Name: NPC
   m_TagString: Untagged
@@ -12965,56 +12963,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00035865605, y: -0.022188723}
+  m_Offset: {x: -0.097359, y: -0.060683735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.45, y: 0.51}
+    oldSize: {x: 0.7008334, y: 0.92375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5102222, y: 0.6331867}
+  m_Size: {x: 0.46876633, y: 0.59173036}
   m_EdgeRadius: 0
---- !u!114 &7012604635882145671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6757720204491395986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585346dc79c2f5a48a16109ad002175b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  moveDistance: 2
-  waitTime: 2
-  enableWaitAtEnd: 0
---- !u!95 &7012604635882145672
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6757720204491395986}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3810a1d9ecc3af343a3f1e0f3a3fb253, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!222 &7083491276047317526
 CanvasRenderer:
   m_ObjectHideFlags: 0
