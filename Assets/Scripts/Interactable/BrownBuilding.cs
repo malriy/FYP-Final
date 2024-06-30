@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class BrownBuilding : MonoBehaviour, IAdvanced
 {
     public Player player;
-    public Vector2 newPos;
+    public Transform newPos;
     public Dialog dialog;
 
     public void Interact()
     {
         if (player.inventory.HasItem(new Item { itemType = Item.ItemType.BrownBuildingKey }))
         {
-            Vector2 pos = new Vector2(newPos.x, newPos.y);
+            Vector2 pos = new Vector2(newPos.position.x, newPos.position.y);
 
             player.transform.position = pos;
         }

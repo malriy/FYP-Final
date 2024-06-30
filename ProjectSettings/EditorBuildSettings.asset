@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Enochlophobia.unity
     guid: f638b2501f0b6834b8df8b03ece02f2f
   - enabled: 1
+    path: Assets/Scenes/Default Scene.unity
+    guid: 3cc7a45b48b839c4393d053792652fa9
+  - enabled: 1
+    path: Assets/Scenes/Scene98.unity
+    guid: 526fef034e13e954f937d29098f1e987
+  - enabled: 1
+    path: Assets/Scenes/Scene99.unity
+    guid: b9be87ead9d8c434a9e3436245210225
+  - enabled: 1
     path: Assets/Scenes/Scene1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1

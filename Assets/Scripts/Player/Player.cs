@@ -53,7 +53,6 @@ public class Player : Singleton<Player>
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
-        
     }
 
     private void Start()
