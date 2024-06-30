@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     public LayerMask interactableLayer;
     //[SerializeField] private TextMeshPro interactText;
     [SerializeField] public TextMeshPro interactText;
+    [SerializeField] private QuestUI questUI;
 
     protected void Awake()
     {
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
         OpenInventory();
         playerControls.Combat.Dash.performed += _ => Dash();
         interactText.gameObject.SetActive(false);
-        //inventoryUI.gameObject.SetActive(false);
+        questUI.gameObject.SetActive(false);
         startingMoveSpeed = moveSpeed;
     }
 
@@ -182,6 +183,21 @@ public class Player : MonoBehaviour
         else
         {
             inventoryUI.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
+    void OnQuest()
+    {
+        if (questUI.gameObject.activeInHierarchy)
+        {
+            questUI.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+
+        }
+        else
+        {
+            questUI.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
     }
