@@ -14,7 +14,7 @@ public class Explosion : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            PlayerHealth1 playerHealth = collision.GetComponent<PlayerHealth1>();
             playerHealth.TakeDamage(1, transform);
         }
     }

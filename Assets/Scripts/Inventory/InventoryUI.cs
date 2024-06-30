@@ -53,7 +53,7 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (Item i in inventory.GetItems())
         {
-            Debug.Log($"Items in inv: {i.itemType} {i.amount}");
+            Debug.Log($"Is player null: {player == null}");
         }
         RefreshInvItems();
     }
@@ -129,7 +129,7 @@ public class InventoryUI : MonoBehaviour
 
     public void DropItem(Item item)
     {
-        Vector3 playerInstance = PlayerController1.Instance != null ? PlayerController1.Instance.transform.position : player.transform.position;
+        Vector3 playerInstance = player != null ? player.transform.position : PlayerController1.Instance.transform.position;
 
         Item duplicateItem =  new Item { itemType = item.itemType, amount = item.amount };
         inventory.RemoveItem(item);

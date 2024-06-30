@@ -49,6 +49,8 @@ public class PlayerController1 : Singleton<PlayerController1>
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
+        inventoryUI.SetPlayer(this);
+
     }
 
     private void Start()

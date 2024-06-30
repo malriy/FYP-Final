@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public bool FacingLeft { get { return facingLeft; } }
     public PlayerHealth1 stats;
     private Stamina stamina;
+    public static bool isDead = false;
 
     [SerializeField] public float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
 
         inventory = new InventoryController(UseItem);
         inventoryUI.SetInventory(inventory);
+        inventoryUI.SetPlayer(this);
     }
 
     private void Start()
@@ -70,8 +72,9 @@ public class Player : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (canMove)
+        if (canMove && !isDead)
         {
+            AdjustPlayerFacingDirection();
             if (movementInput != Vector2.zero)
             {
                 animator.SetFloat("moveX", movementInput.x);
@@ -95,7 +98,6 @@ public class Player : MonoBehaviour
             }
         }
 
-        AdjustPlayerFacingDirection();
         float detectionRadius = 1.5f;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, interactableLayer);
         if (colliders.Length > 0)

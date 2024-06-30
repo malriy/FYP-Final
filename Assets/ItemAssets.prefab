@@ -51,3 +51,5 @@ MonoBehaviour:
   basketballSprite: {fileID: -355648802, guid: 256fb909114f6874bb2fe919286cc819, type: 3}
   gunKeySprite: {fileID: 1787859879, guid: 2971cd63e62dfe14aa6ad8359d6bffaa, type: 3}
   lanternSprite: {fileID: 21300000, guid: 69a3b1060e7ae704bb37fda54e67f46a, type: 3}
+  iceCreamSprite: {fileID: 21300000, guid: bb03f3ad5910542459a8233c797710a2, type: 3}
+  GymCardSprite: {fileID: 21300000, guid: ad63365d48996cc479ab2cccd9dc45c8, type: 3}

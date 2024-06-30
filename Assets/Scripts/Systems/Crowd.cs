@@ -8,6 +8,7 @@ public class Crowd : MonoBehaviour
     [SerializeField] private Dialog dialog;
     [SerializeField] private Player player;
 
+    private int numofCrowds;
     private bool hasInteracted = false; 
 
     public static void DestroyCrowd(int crowdID)
@@ -27,10 +28,14 @@ public class Crowd : MonoBehaviour
         if (!hasInteracted && collision.CompareTag("Player")) // Check the flag
         {
             StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
-            hasInteracted = true; // Set the flag
+            hasInteracted = true;
+
+            Crowd[] allCrowds = FindObjectsOfType<Crowd>();
+            numofCrowds = allCrowds.Length;
+            Debug.Log(numofCrowds);
 
             Vector3 direction = (player.transform.position - collision.transform.position).normalized;
-            player.GetComponent<PlayerHealth>().TakeDamage(2, transform);
+            player.GetComponent<PlayerHealth1>().TakeDamage(numofCrowds, transform);
         }
     }
 

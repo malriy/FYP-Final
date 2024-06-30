@@ -14,6 +14,8 @@ public class Stairs : MonoBehaviour
             Vector2 pos = new Vector2(newPos.x, newPos.y);
 
             player.transform.position = pos;
+
+            if (Quest.IsQuestFinished("EnochMain")) { BossAI.startedFight = true; }
         }
     }
 }
