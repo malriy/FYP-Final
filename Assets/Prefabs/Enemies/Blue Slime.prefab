@@ -167,10 +167,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
-  attackRange: 5
+  attackRange: 0
   enemyType: {fileID: 0}
   attackCooldown: 2
   stopMovingWhileAttacking: 0
+  shouldRoam: 1
+  player: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &8151591008500851923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,9 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce43f0580a7cf3c40bfc8f19135a75e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyID: 0
   startingHealth: 3
   deathVFXPrefab: {fileID: 4862938585395634351, guid: 583cd6ca1ce690c4d99f226f2926aec7, type: 3}
   knockBackThrust: 15
+  animator: {fileID: 0}
+  deathAnim: 
+  player: {fileID: 0}
 --- !u!114 &9138193911672127151
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,9 @@ public class Item
         IceCream,
         GymCard,
         Keys,
+        Brush,
+        MoonStone,
+        SunStone
     }
 
     public ItemType itemType;
@@ -35,7 +38,9 @@ public class Item
             case ItemType.IceCream:         return ItemAssets.Instance.iceCreamSprite;
             case ItemType.GymCard:          return ItemAssets.Instance.GymCardSprite;
             case ItemType.Keys:             return ItemAssets.Instance.KeysSprite;
-
+            case ItemType.Brush:            return ItemAssets.Instance.BrushSprite;
+            case ItemType.MoonStone:        return ItemAssets.Instance.MoonStoneSprite;
+            case ItemType.SunStone:         return ItemAssets.Instance.SunStoneSprite;
         }
     }
 
@@ -54,6 +59,9 @@ public class Item
             case ItemType.IceCream:
             case ItemType.GymCard:
             case ItemType.Keys:
+            case ItemType.Brush:
+            case ItemType.MoonStone:
+            case ItemType.SunStone:
                 return false;
         }
     }

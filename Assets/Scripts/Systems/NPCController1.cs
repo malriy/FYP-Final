@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class NPCController1 : MonoBehaviour, Interactable
 {
     public string npcName;
+    public string npcID; // Unique ID for each NPC
 
     [SerializeField] public Dialog dialog;
     [SerializeField] private Dialog newDialog;
@@ -41,6 +42,11 @@ public class NPCController1 : MonoBehaviour, Interactable
 
     private void Start()
     {
+        #if UNITY_EDITOR
+        // Uncomment the next line to reset the interaction state in the Unity Editor for testing purposes
+        PlayerPrefs.DeleteKey(npcID);
+        #endif
+
         startPosition = transform.position;
         leftPosition = startPosition + Vector3.left * roamDistance;
         rightPosition = startPosition + Vector3.right * roamDistance;
@@ -49,6 +55,10 @@ public class NPCController1 : MonoBehaviour, Interactable
         {
             StartCoroutine(Roam());
         }
+
+        // Load the interaction state
+        hasTalked = PlayerPrefs.GetInt(npcID, 0) == 1;
+        Debug.Log($"NPC {npcID} hasTalked: {hasTalked}");
     }
 
     private void Update()
@@ -82,12 +92,15 @@ public class NPCController1 : MonoBehaviour, Interactable
             StartCoroutine(DialogueManager1.Instance.ShowDialog(dialog));
             GiftPlayer();
             hasTalked = true;
+            PlayerPrefs.SetInt(npcID, 1); // Save the interaction state
+            Debug.Log($"NPC {npcID} hasTalked set to true");
         }
         else
         {
             StartCoroutine(DialogueManager1.Instance.ShowDialog(newDialog));
         }
     }
+
     [NonSerialized] public bool moving;
 
     void GiftPlayer()

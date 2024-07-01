@@ -7,8 +7,9 @@ public class NPCRoam : MonoBehaviour
     public float moveDistance = 5f; // Distance the NPC will move before changing direction
     public float waitTime = 2f; // Time to wait before resuming movement at the end of distance
     public bool enableWaitAtEnd = false; // Option to enable waiting at the end distance
+    public bool startFacingRight = true; // Determines the initial facing direction
 
-    private bool movingRight = true;
+    private bool movingRight;
     private float startPositionX;
     private SpriteRenderer spriteRenderer;
     private bool isPaused = false; // To check if NPC is paused
@@ -20,6 +21,10 @@ public class NPCRoam : MonoBehaviour
         startPositionX = transform.position.x;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        // Set the initial facing direction
+        movingRight = startFacingRight;
+        spriteRenderer.flipX = !startFacingRight; // Flip sprite if starting facing left
     }
 
     void Update()

@@ -18247,7 +18247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene2
   sceneTransitionName: WEntry
-  requiresItem: 1
+  requiresItem: 0
   requiredItemType: 7
   noItemDialog:
     lines:
@@ -18503,6 +18503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Wiseman
+  npcID: 0
   dialog:
     lines:
     - speaker: Wiseman

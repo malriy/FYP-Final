@@ -18,25 +18,30 @@ public class Slime : MonoBehaviour, IEnemy
     private void Update() {
         if (Vector2.Distance(transform.position, PlayerController1.Instance.transform.position) <= attackRadius)
         {
+            // Attack the player
             Vector2 targetDirection = PlayerController1.Instance.transform.position - transform.position;
-            transform.position += enemyPathfinding.moveSpeed * Time.deltaTime * (Vector3)targetDirection.normalized;
+            enemyPathfinding.MoveTo(targetDirection.normalized); // Use EnemyPathfinding for movement
         }
         else
         {
+            // Roam around
             if (Vector2.Distance(transform.position, roamPosition) < 1f)
             {
                 roamPosition = GetRandomRoamPosition();
             }
             else
             {
-                transform.position = Vector2.MoveTowards(transform.position, roamPosition, enemyPathfinding.moveSpeed * Time.deltaTime);
+                Vector2 roamDirection = roamPosition - (Vector2)transform.position;
+                enemyPathfinding.MoveTo(roamDirection.normalized); // Use EnemyPathfinding for movement
             }
         }
     }
 
     private Vector2 GetRandomRoamPosition() {
-        return (Vector2)transform.position + Random.insideUnitCircle.normalized * roamRadius;
+        return (Vector2)transform.position + Random.insideUnitCircle * roamRadius;
     }
 
-    public void Attack(){}
+    public void Attack() {
+        // Implement attack logic here
+    }
 }

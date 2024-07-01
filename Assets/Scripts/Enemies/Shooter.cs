@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour, IEnemy
     [SerializeField] private float timeBetweenBursts;
     [SerializeField] private float restTime = 1f;
     [SerializeField] private Transform shotPos;
+    [Tooltip("Stagger must be enabled for oscillate to function properly.")]
     [SerializeField] private Player player;
 
     private void Start()

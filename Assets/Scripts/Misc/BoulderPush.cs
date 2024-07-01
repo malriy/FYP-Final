@@ -34,6 +34,10 @@ public class PushableBoulder : MonoBehaviour
         {
             StopBothBoulders(collision);
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Handle enemy collision if needed
+        }
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -46,6 +50,10 @@ public class PushableBoulder : MonoBehaviour
         else if (collision.gameObject.CompareTag("Boulder"))
         {
             StopBothBoulders(collision);
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Handle enemy collision if needed
         }
     }
 
@@ -66,6 +74,10 @@ public class PushableBoulder : MonoBehaviour
                 otherBoulder.isStoppedByBoulder = false;
                 otherBoulder.rb.velocity = Vector2.zero;
             }
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Handle enemy collision if needed
         }
     }
 

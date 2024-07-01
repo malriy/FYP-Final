@@ -21,4 +21,7 @@ public class ItemAssets : MonoBehaviour
     public Sprite iceCreamSprite;
     public Sprite GymCardSprite;
     public Sprite KeysSprite;
+    public Sprite BrushSprite;
+    public Sprite MoonStoneSprite;
+    public Sprite SunStoneSprite;
 }
