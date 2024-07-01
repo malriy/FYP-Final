@@ -77,7 +77,10 @@ public class DialogueManager1 : MonoBehaviour
 
     private void OnDestroy()
     {
-        TriggerEvent.OnTrigger -= HandleUpdate;
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
     public IEnumerator TypeDialog(DialogLine dialogLine)
@@ -88,7 +91,7 @@ public class DialogueManager1 : MonoBehaviour
         foreach (var letter in dialogLine.line.ToCharArray())
         {
             dialogText.text += letter;
-            yield return new WaitForSeconds(1f / lettersPerSecond);
+            yield return new WaitForSecondsRealtime(1f / lettersPerSecond);
         }
         isTyping = false;
     }

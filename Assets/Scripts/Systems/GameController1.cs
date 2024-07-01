@@ -29,12 +29,14 @@ public class GameController1 : MonoBehaviour
         {
             state = GameState.Dialog;
             if (player1 != null) { PlayerController1.Instance.interactText.gameObject.SetActive(false); }
+            Time.timeScale = 0f;
         };
         DialogueManager1.Instance.OnHideDialog += () =>
         {
             if (state == GameState.Dialog)
             {
                 state = GameState.FreeRoam;
+                Time.timeScale = 1f;
             }
         };
     }
@@ -45,7 +47,7 @@ public class GameController1 : MonoBehaviour
         {
             if (player1 != null)
             {
-                player1.Update();
+                player1.HandleUpdate();
             }
         }
         else if (state == GameState.Dialog)

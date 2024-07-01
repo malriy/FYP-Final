@@ -20,4 +20,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite lanternSprite;
     public Sprite iceCreamSprite;
     public Sprite GymCardSprite;
+    public Sprite KeysSprite;
 }

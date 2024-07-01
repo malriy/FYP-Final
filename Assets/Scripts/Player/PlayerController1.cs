@@ -66,7 +66,7 @@ public class PlayerController1 : Singleton<PlayerController1>
         playerControls.Enable();
     }
 
-    public void Update()
+    public void HandleUpdate()
     {
         PlayerInput();
         playerControls.Inventory.OpenInv.performed += _ => OpenInventory();

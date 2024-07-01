@@ -14,7 +14,8 @@ public class Item
         GunStoreKey,
         Lantern,
         IceCream,
-        GymCard
+        GymCard,
+        Keys,
     }
 
     public ItemType itemType;
@@ -33,6 +34,8 @@ public class Item
             case ItemType.Lantern:          return ItemAssets.Instance.lanternSprite;
             case ItemType.IceCream:         return ItemAssets.Instance.iceCreamSprite;
             case ItemType.GymCard:          return ItemAssets.Instance.GymCardSprite;
+            case ItemType.Keys:             return ItemAssets.Instance.KeysSprite;
+
         }
     }
 
@@ -50,6 +53,7 @@ public class Item
             case ItemType.Lantern:
             case ItemType.IceCream:
             case ItemType.GymCard:
+            case ItemType.Keys:
                 return false;
         }
     }

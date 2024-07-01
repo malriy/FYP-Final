@@ -31,6 +31,8 @@ public class NPCController1 : MonoBehaviour, Interactable
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
+    private bool playerInRange = false;
+
     private void Awake()
     {
         nameText = GameObject.Find("NameText").GetComponent<Text>();
@@ -53,7 +55,6 @@ public class NPCController1 : MonoBehaviour, Interactable
     {
         if (animator != null)
         {
-            
             animator.SetBool("moving", moving);
         }
     }
@@ -75,7 +76,7 @@ public class NPCController1 : MonoBehaviour, Interactable
         {
             nameText.text = "???";
         }
-        
+
         if (!hasTalked)
         {
             StartCoroutine(DialogueManager1.Instance.ShowDialog(dialog));
@@ -109,23 +110,55 @@ public class NPCController1 : MonoBehaviour, Interactable
     {
         while (willRoam)
         {
-            // Set target position based on the current direction
-            targetPosition = movingRight ? rightPosition : leftPosition;
-
-            // Move towards the target position
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            if (!playerInRange)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, roamSpeed * Time.deltaTime);
-                moving = true;
+                // Set target position based on the current direction
+                targetPosition = movingRight ? rightPosition : leftPosition;
+
+                // Move towards the target position
+                while (!playerInRange && Vector3.Distance(transform.position, targetPosition) > 0.1f)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, targetPosition, roamSpeed * Time.deltaTime);
+                    moving = true;
+                    yield return null;
+                }
+
+                // Flip direction and wait for a bit before moving again
+                movingRight = !movingRight;
+                spriteRenderer.flipX = movingRight ? false : true;
+
+                moving = false;
+                yield return new WaitForSeconds(roamDelay);
+            }
+            else
+            {
+                moving = false;
                 yield return null;
             }
+        }
+    }
 
-            // Flip direction and wait for a bit before moving again
-            movingRight = !movingRight;
-            spriteRenderer.flipX = movingRight ? false : true;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+            if (animator != null)
+            {
+                animator.SetBool("moving", false);
+            }
+        }
+    }
 
-            moving = false;
-            yield return new WaitForSeconds(roamDelay);
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            if (willRoam)
+            {
+                StartCoroutine(Roam());
+            }
         }
     }
 }
