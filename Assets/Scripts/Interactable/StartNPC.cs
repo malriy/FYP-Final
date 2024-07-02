@@ -15,7 +15,7 @@ public class StartNPC : NPCController
     {
         if (hasTalked)
         {
-            bars.SetActive(false);
+            Destroy(bars);
             StartCoroutine(DialogueManager.Instance.ShowDialog(newDialog));
         }
         else

@@ -99,6 +99,11 @@ public class BossStats : MonoBehaviour
 
     public void EndLevel()
     {
+        GameObject[] persistentObjects = GameObject.FindGameObjectsWithTag("Persistent");
+        foreach (GameObject obj in persistentObjects)
+        {
+            Destroy(obj);
+        }
         SceneManager.LoadScene("Lobby");
         StartNPC.lastLevelCompleted = 2;
     }
