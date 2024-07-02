@@ -1696,7 +1696,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 28
+      m_TileSpriteIndex: 29
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1716,7 +1716,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 27
+      m_TileSpriteIndex: 28
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1866,7 +1866,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 16
+      m_TileSpriteIndex: 27
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3655,8 +3655,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1181572447, guid: 7ba767e2bf7ba6b49a04789e527ab79e, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 43
     m_Data: {fileID: 1184866567, guid: 4f80b875518a6a0468eda15c3374c241, type: 3}
   - m_RefCount: 1
@@ -3678,11 +3678,11 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 935305385, guid: 4f80b875518a6a0468eda15c3374c241, type: 3}
   - m_RefCount: 1
+    m_Data: {fileID: -1181572447, guid: 7ba767e2bf7ba6b49a04789e527ab79e, type: 3}
+  - m_RefCount: 1
     m_Data: {fileID: -1405683753, guid: 7ba767e2bf7ba6b49a04789e527ab79e, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1255769430, guid: 7ba767e2bf7ba6b49a04789e527ab79e, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 270
     m_Data:
@@ -3964,7 +3964,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8745756, y: 2.0000277, z: -9.978816}
+  m_LocalPosition: {x: 5.5360165, y: 1.9990975, z: -9.978816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15373,10 +15373,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene9
   sceneTransitionName: NEntry
-  requiresItems: 0
-  requiredItemTypes: 
+  requiresItems: 1
+  requiredItemTypes: 0a0000000b000000
   noItemDialog:
-    lines: []
+    lines:
+    - speaker: World
+      line: Need stones.
 --- !u!61 &1324273665
 BoxCollider2D:
   m_ObjectHideFlags: 0

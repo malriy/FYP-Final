@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && !isTyping)
+        if (Input.GetKeyUp(KeyCode.E) && !isTyping)
         {
             ++currentLine;
             if (currentLine < dialog.Lines.Count)

@@ -108,14 +108,7 @@ public class NPCController1 : MonoBehaviour, Interactable
         foreach (RewardItems rewardItems in gifts)
         {
             Item item = new Item { itemType = rewardItems.itemType, amount = rewardItems.amount };
-            if (player != null)
-            {
-                player.inventory.AddItem(item);
-            }
-            if (player1 != null)
-            {
-                player1.inventory.AddItem(item);
-            }
+            PlayerController1.Instance.inventory.AddItem(item);
         }
     }
 

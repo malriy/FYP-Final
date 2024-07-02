@@ -3064,7 +3064,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8745756, y: 2.0000277, z: -9.978816}
+  m_LocalPosition: {x: 5.5360165, y: 1.9990975, z: -9.978816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3581,10 +3581,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene8
   sceneTransitionName: SEntry
-  requiresItems: 0
-  requiredItemTypes: 
+  requiresItems: 1
+  requiredItemTypes: 0a0000000b000000
   noItemDialog:
-    lines: []
+    lines:
+    - speaker: World
+      line: Need stones.
 --- !u!61 &715828440
 BoxCollider2D:
   m_ObjectHideFlags: 0
