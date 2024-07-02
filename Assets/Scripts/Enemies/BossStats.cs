@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossStats : MonoBehaviour
@@ -13,10 +14,20 @@ public class BossStats : MonoBehaviour
     public GameObject head;
     [SerializeField] private Flash flash;
     [SerializeField] private Flash headFlash;
+    [SerializeField] private GameObject endFlash;
 
 
     private bool canTakeDamage = true;
     [SerializeField] private float damageRecoveryTime = 1f;
+
+    private void Awake()
+    {
+        canvasGroup = endFlash.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = endFlash.AddComponent<CanvasGroup>();
+        }
+    }
 
     void Start()
     {
@@ -70,12 +81,45 @@ public class BossStats : MonoBehaviour
     private void Die()
     {
         head.SetActive(false);
+        EnochStart.EnochCompleted = true;
+        BossAI ai = GetComponent<BossAI>();
+        ai.enabled = false;
         animator.SetTrigger("isDead");
     }
 
-    private void DestroyBoss()
+    private IEnumerator DestroyBoss()
     {
+        yield return new WaitForSeconds(0.5f);
+        EndLevel();
         Destroy(gameObject);
+    }
+
+    private CanvasGroup canvasGroup;
+    [SerializeField] private float fadeDuration = 1f;
+
+    public void EndLevel()
+    {
+        SceneManager.LoadScene("Lobby");
+        StartNPC.lastLevelCompleted = 2;
+    }
+
+    private IEnumerator FlashAndDestroy()
+    {
+        endFlash.SetActive(true);
+        slider.gameObject.SetActive(false);
+        //Boss flash explosion
+        float elapsedTime = 0f;
+
+        elapsedTime = 0f;
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            canvasGroup.alpha = 1 - Mathf.Clamp01(elapsedTime / fadeDuration);
+            yield return null;
+        }
+        canvasGroup.alpha = 0;
+        endFlash.SetActive(false);
+        
     }
 
     public int GetHealth()

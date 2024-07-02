@@ -15,7 +15,7 @@ public class Stairs : MonoBehaviour
 
             player.transform.position = pos;
 
-            if (Quest.IsQuestFinished("EnochMain")) { BossAI.startedFight = true; }
+            if (!GunStore.locked) { BossAI.startedFight = true; }
         }
     }
 }

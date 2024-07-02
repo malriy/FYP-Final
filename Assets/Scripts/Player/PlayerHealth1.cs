@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth1 : MonoBehaviour
@@ -17,19 +18,25 @@ public class PlayerHealth1 : MonoBehaviour
     private KnockBack knockback;
     private Flash flash;
 
+    private QuestManager questManager;
     [SerializeField] private Animator animator;
 
     protected void Awake (){
-
-
         flash = GetComponent<Flash>();
         knockback = GetComponent<KnockBack>();
+        canvasGroup = deathScreen.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = deathScreen.AddComponent<CanvasGroup>();
+        }
     }
 
     private void Start(){
         currentHealth = maxHealth;
-
+        questManager = FindObjectOfType<QuestManager>();
+        questManager.LoadQuestState();
         UpdateHealthSlider();
+        deathScreen.SetActive(false);
     }
 
     private void OnCollisionStay2D(Collision2D other){
@@ -63,12 +70,9 @@ public class PlayerHealth1 : MonoBehaviour
         if (currentHealth <= 0){
             currentHealth = 0;
             animator.SetTrigger("playerDeath");
-
-            if (player.gameObject.activeInHierarchy)
-            {
-                player.moveSpeed = 0;
-                BossAI.startedFight = false;
-            }
+            player.enabled = false;
+            BossAI.startedFight = false;
+            StartCoroutine(OpenDeathScreen());
         }
     }
 
@@ -84,5 +88,42 @@ public class PlayerHealth1 : MonoBehaviour
 
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+    }
+
+    public void ResetLevel()
+    {
+        questManager.SaveQuestState();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private CanvasGroup canvasGroup;
+    [SerializeField] private float fadeDuration = 1f;
+    [SerializeField] private GameObject deathScreen;
+
+    private IEnumerator OpenDeathScreen()
+    {
+        deathScreen.SetActive(true);
+        float elapsedTime = 0f;
+
+        elapsedTime = 0f;
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
+            yield return null;
+        }
+        canvasGroup.alpha = 1;
+
+    }
+
+    public void QuitButton()
+    {
+        questManager.SaveQuestState();
+        GameObject[] persistentObjects = GameObject.FindGameObjectsWithTag("Persistent");
+        foreach (GameObject obj in persistentObjects)
+        {
+            Destroy(obj);
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 }

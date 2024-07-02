@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnochStart : MonoBehaviour
 {
-    [SerializeField] private Player player;
     [SerializeField] private GameObject park;  // Assign this in the Unity editor
     private static EnochStart instance;
+    public static bool EnochCompleted;
 
     private void Awake()
     {
@@ -17,8 +17,6 @@ public class EnochStart : MonoBehaviour
         {
             park.SetActive(false);
         }
-
-        player.transform.position = this.transform.position;
         CameraController.Instance.SetPlayerAkmalCameraFollow();
         UIFade.Instance.FadeToClear();
     }

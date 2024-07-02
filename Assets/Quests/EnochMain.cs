@@ -15,14 +15,11 @@ public class EnochMain : Quest
         };
 
         Goals.ForEach(g => g.Init());
-
-        OnQuestCompleted += HandleQuestCompleted;
     }
 
-    void HandleQuestCompleted()
+    public override void PostQuest()
     {
-        Goals.Clear();
-        Goals.Add(new KillGoal(this, 0, "Destroy the source", false, 0, 1)); 
+        GunStore.locked = false;
     }
 
 }

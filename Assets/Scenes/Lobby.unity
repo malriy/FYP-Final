@@ -4270,11 +4270,13 @@ MonoBehaviour:
     - speaker: Alex
       line: These two rooms represent the fears you harbor
     - speaker: Alex
+      line: Choose one and finish it to the end.
+    - speaker: Alex
       line: Fight them. As hard as they may be.
   newDialog:
     lines:
     - speaker: Alex
-      line: AUGH
+      line: Best of luck tyler.
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1
@@ -4286,7 +4288,29 @@ MonoBehaviour:
   newDialog:
     lines:
     - speaker: Alex
-      line: AUGH
+      line: Best of luck tyler.
+  onEnochComplete:
+    lines:
+    - speaker: Alex
+      line: Welcome back Tyler
+    - speaker: Alex
+      line: How do you feel?
+    - speaker: Tyler
+      line: I..think I feel better?
+    - speaker: Alex
+      line: If you haven't noticed, that was all about your fear of crowds.
+    - speaker: Tyler
+      line: Yeah...there were crowds everywhere.
+    - speaker: Tyler
+      line: But they slowly disappeared.
+    - speaker: Alex
+      line: They might not be gone completely..
+    - speaker: Alex
+      line: But remember what the people you helped told you.
+    - speaker: Alex
+      line: And use it when you go home at the end.
+  onCpComplete:
+    lines: []
   bars: {fileID: 942656598}
 --- !u!4 &1465277946 stripped
 Transform:

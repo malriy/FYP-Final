@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class StartNPC : NPCController
 {
-    private bool hasTalked = false;
     [SerializeField] private Dialog newDialog;
+    [SerializeField] private Dialog onEnochComplete;
+    [SerializeField] private Dialog onCpComplete;
+
     [SerializeField] private GameObject bars;
+    public static int lastLevelCompleted;
 
     public override void Interact()
     {
@@ -17,7 +20,19 @@ public class StartNPC : NPCController
         }
         else
         {
-            StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
+            if (EnochStart.EnochCompleted && lastLevelCompleted == 2)
+            {
+                StartCoroutine(DialogueManager.Instance.ShowDialog(onEnochComplete));
+            }
+            else if (lastLevelCompleted == 1)
+            {
+                StartCoroutine(DialogueManager.Instance.ShowDialog(onCpComplete));
+            }
+            else
+            {
+                StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
+            }
+
             hasTalked = true;
         }
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Scripting.APIUpdating;
 
 public class Player : MonoBehaviour
@@ -44,7 +45,6 @@ public class Player : MonoBehaviour
 
     protected void Awake()
     {
-
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         interactText.gameObject.SetActive(false);
         questUI.gameObject.SetActive(false);
         startingMoveSpeed = moveSpeed;
+        
     }
 
     private void OnEnable()
@@ -73,6 +74,11 @@ public class Player : MonoBehaviour
 
     public void HandleUpdate()
     {
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            stats.TakeDamage(stats.maxHealth, this.transform);
+        }
+
         if (canMove && !isDead)
         {
             AdjustPlayerFacingDirection();
@@ -263,7 +269,7 @@ public class Player : MonoBehaviour
 
     private void Dash()
     {
-        if (!isDashing && stamina.CurrentStamina > 0)
+        if (!isDashing && stamina.CurrentStamina > 0 && !DialogueManager.Instance.isDialogActive)
         {
             stamina.UseStamina();
             isDashing = true;

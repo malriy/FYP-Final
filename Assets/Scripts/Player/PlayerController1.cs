@@ -196,7 +196,8 @@ public class PlayerController1 : Singleton<PlayerController1>
 
     private void Dash()
     {
-        if(!isDashing && stamina.CurrentStamina > 0){
+        if(!isDashing && stamina.CurrentStamina > 0 && !DialogueManager1.Instance.isDialogActive)
+        {
             stamina.UseStamina();
             isDashing = true;
             moveSpeed *= dashSpeed;

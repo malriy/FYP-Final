@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         if (state == GameState.FreeRoam)
         {
 
-            if (player != null)
+            if (player != null && player.enabled)
             {
                 player.HandleUpdate();
             }
