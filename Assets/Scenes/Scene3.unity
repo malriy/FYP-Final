@@ -2546,7 +2546,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8199048, y: -1.6645724, z: -9.978816}
+  m_LocalPosition: {x: -2.8731961, y: -1.6646624, z: -9.978816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4201,8 +4201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene4
   sceneTransitionName: WEntry
-  requiresItem: 0
-  requiredItemType: 0
+  requiresItems: 0
+  requiredItemTypes: 
   noItemDialog:
     lines: []
 --- !u!61 &1134870210
@@ -9917,6 +9917,10 @@ PrefabInstance:
       propertyPath: player1
       value: 
       objectReference: {fileID: 1053264134}
+    - target: {fileID: 6293288732285552844, guid: 5c59109ea3ac9894ba358869643b5e9c, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1931272898}
     - target: {fileID: 8636516582837887753, guid: 5c59109ea3ac9894ba358869643b5e9c, type: 3}
       propertyPath: nameBox
       value: 
@@ -9942,6 +9946,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c59109ea3ac9894ba358869643b5e9c, type: 3}
+--- !u!114 &1206624708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6293288732285552844, guid: 5c59109ea3ac9894ba358869643b5e9c, type: 3}
+  m_PrefabInstance: {fileID: 1206624706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed459d610b294b4fb849ccb93eb5c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1211191222
 GameObject:
   m_ObjectHideFlags: 0
@@ -17077,6 +17092,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4994393542291688346, guid: 8a8d9d6cdd04f8142be0b0debae68a0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1206624708}
+    - target: {fileID: 5178272831632581739, guid: 8a8d9d6cdd04f8142be0b0debae68a0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1206624708}
+    - target: {fileID: 5944046855498521743, guid: 8a8d9d6cdd04f8142be0b0debae68a0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1206624708}
     - target: {fileID: 6552119012140000245, guid: 8a8d9d6cdd04f8142be0b0debae68a0f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -18796,6 +18823,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58add504c0a49624caf85417d5165c63, type: 3}
+--- !u!1 &1931272898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6186790535135535886, guid: 8a8d9d6cdd04f8142be0b0debae68a0f, type: 3}
+  m_PrefabInstance: {fileID: 1409911619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1941495737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8200032124557258678, guid: 58add504c0a49624caf85417d5165c63, type: 3}
@@ -19064,8 +19096,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene2
   sceneTransitionName: EEntry
-  requiresItem: 0
-  requiredItemType: 0
+  requiresItems: 0
+  requiredItemTypes: 
   noItemDialog:
     lines: []
 --- !u!61 &2074674148
@@ -19857,6 +19889,7 @@ MonoBehaviour:
   moveDistance: 2
   waitTime: 2
   enableWaitAtEnd: 1
+  startFacingRight: 1
 --- !u!114 &7949581473224596126
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -113,7 +113,6 @@ public class PlayerHealth1 : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 1;
-
     }
 
     public void QuitButton()

@@ -15,15 +15,24 @@ public class KnockBack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void GetKnockedBack(Transform damageSource, float knockBackThrust){
+    public void GetKnockedBack(Transform damageSource, float knockBackThrust)
+    {
         GettingKnockedBack = true;
         Vector2 difference = (transform.position - damageSource.position).normalized * knockBackThrust * rb.mass;
         rb.AddForce(difference, ForceMode2D.Impulse);
         StartCoroutine(KnockRoutine());
     }
 
-    private IEnumerator KnockRoutine(){
+    private IEnumerator KnockRoutine()
+    {
         yield return new WaitForSeconds(knockbackTime);
+        rb.velocity = Vector2.zero;
+        GettingKnockedBack = false;
+    }
+
+    public void ResetKnockBack()
+    {
+        StopAllCoroutines();
         rb.velocity = Vector2.zero;
         GettingKnockedBack = false;
     }
