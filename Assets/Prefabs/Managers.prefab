@@ -148,4 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed459d610b294b4fb849ccb93eb5c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 9123408622031790775, guid: 593822843408b804899ba5201cce7e01, type: 3}

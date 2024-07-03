@@ -6,7 +6,7 @@ public class DontDestroyOnLoadManager : MonoBehaviour
     public void DestroySpecificDontDestroyOnLoadObjects()
     {
         // List of specific objects to destroy
-        List<string> objectsToDestroy = new List<string> { "UICanvas", "Player", "GameController", "Managers" };
+        List<string> objectsToDestroy = new List<string> { "UICanvas", "Player", "GameController", "Managers", "Quests" };
 
         GameObject temp = null;
         try
