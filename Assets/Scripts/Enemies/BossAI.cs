@@ -154,7 +154,7 @@ public class BossAI : MonoBehaviour
 		if (playerInHitbox)
 		{
             PlayerHealth health = player.GetComponent<PlayerHealth>();
-			health.TakeDamage(5, transform);
+			health.TakeDamage(8, transform);
         }
 
         yield return new WaitForSeconds(attackCooldown);

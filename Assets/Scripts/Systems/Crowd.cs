@@ -32,7 +32,6 @@ public class Crowd : MonoBehaviour
 
             Crowd[] allCrowds = FindObjectsOfType<Crowd>();
             numofCrowds = allCrowds.Length;
-            Debug.Log(numofCrowds);
 
             Vector3 direction = (player.transform.position - collision.transform.position).normalized;
             player.GetComponent<PlayerHealth1>().TakeDamage(numofCrowds, transform);

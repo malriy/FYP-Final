@@ -2571,6 +2571,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -5.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2691248574920614849, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1102387065}
+    - target: {fileID: 2691248574920614849, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867228987155958832, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1102387065}
+    - target: {fileID: 2867228987155958832, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528756103224171301, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1102387065}
+    - target: {fileID: 3528756103224171301, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 4767152123238138524, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2659,6 +2683,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+--- !u!1 &676654761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6705260414093372151, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
+  m_PrefabInstance: {fileID: 676654760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &698905873
 GameObject:
   m_ObjectHideFlags: 0
@@ -4220,6 +4249,7 @@ GameObject:
   - component: {fileID: 1102387064}
   - component: {fileID: 1102387063}
   - component: {fileID: 1102387062}
+  - component: {fileID: 1102387065}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4273,6 +4303,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102387065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102387061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed459d610b294b4fb849ccb93eb5c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 676654761}
 --- !u!1001 &1122144120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4759,6 +4802,12 @@ MonoBehaviour:
     lines:
     - speaker: Alex
       line: Best of luck tyler.
+    - speaker: Tyler
+      line: What if I get too scared and want to come back here?
+    - speaker: Alex
+      line: You can't. Face it to the end.
+    - speaker: Alex
+      line: Take it slow if you need to.
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1
@@ -4771,6 +4820,12 @@ MonoBehaviour:
     lines:
     - speaker: Alex
       line: Best of luck tyler.
+    - speaker: Tyler
+      line: What if I get too scared and want to come back here.
+    - speaker: Alex
+      line: You can't. Face it to the end.
+    - speaker: Alex
+      line: Take it slow if you need to.
   onEnochComplete:
     lines:
     - speaker: Alex

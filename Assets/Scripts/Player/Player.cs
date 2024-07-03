@@ -74,12 +74,6 @@ public class Player : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            EnochStart.EnochCompleted = true;
-
-        }
-
         if (canMove && !isDead)
         {
             AdjustPlayerFacingDirection();
@@ -176,7 +170,6 @@ public class Player : MonoBehaviour
     void OnNextDialogue()
     {
         TriggerEvent.Trigger();
-        Debug.Log("Dialogging");
     }
 
     void OnOpenInv()

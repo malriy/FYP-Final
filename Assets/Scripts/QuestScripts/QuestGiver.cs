@@ -31,7 +31,6 @@ public class QuestGiver : NPCController
         {
             base.Interact();
             AssignQuest();
-            Debug.Log("Quest assigned");
             hasTalked = false;
         }
         else if (assignedQuest && !helped)
@@ -39,7 +38,6 @@ public class QuestGiver : NPCController
             CheckExistingItems();
             CheckQuestCompletion();
             hasTalked = false;
-            Debug.Log(hasTalked);
         }
         else if (assignedQuest && helped && !hasTalked)
         {
