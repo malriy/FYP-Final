@@ -9920,7 +9920,7 @@ PrefabInstance:
     - target: {fileID: 6293288732285552844, guid: 5c59109ea3ac9894ba358869643b5e9c, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 1931272898}
+      objectReference: {fileID: 0}
     - target: {fileID: 8636516582837887753, guid: 5c59109ea3ac9894ba358869643b5e9c, type: 3}
       propertyPath: nameBox
       value: 
@@ -18823,11 +18823,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58add504c0a49624caf85417d5165c63, type: 3}
---- !u!1 &1931272898 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6186790535135535886, guid: 8a8d9d6cdd04f8142be0b0debae68a0f, type: 3}
-  m_PrefabInstance: {fileID: 1409911619}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1941495737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8200032124557258678, guid: 58add504c0a49624caf85417d5165c63, type: 3}
@@ -19717,7 +19712,7 @@ Transform:
   m_GameObject: {fileID: 4985843710886348228}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 6.73, z: -5.900888}
+  m_LocalPosition: {x: 0.38, y: 6.99, z: -5.900888}
   m_LocalScale: {x: 1.9025841, y: 1.9025841, z: 1.9025841}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19755,7 +19750,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00035865605, y: -0.022188723}
+  m_Offset: {x: 0.00035864115, y: -0.065522745}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19766,7 +19761,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5102222, y: 0.6331867}
+  m_Size: {x: 0.5102222, y: 0.7198547}
   m_EdgeRadius: 0
 --- !u!1 &4079321269171431333
 GameObject:
@@ -19902,35 +19897,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca90b9371b26a74cade141c6e0fb6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Explorer
+  npcName: Wanderer
   npcID: 2
   dialog:
     lines:
-    - speaker: Explorer
-      line: Hello there! You seem new around here.
-    - speaker: Explorer
-      line: "I\u2019m a Resourceful Explorer, always looking for useful items in
-        these woods"
+    - speaker: Wanderer
+      line: Hi there! These crates look tough, but your weapons can break them.
+    - speaker: Wanderer
+      line: You might find some useful items inside.
+    - speaker: Wanderer
+      line: Sometimes, you have to break through barriers to discover new things.
     - speaker: Tyler
-      line: What are you doing?
-    - speaker: Explorer
-      line: Have you noticed the crates in there ? They can be quite useful !
-    - speaker: Explorer
-      line: But I'm not able to move the boulder...
-    - speaker: Explorer
-      line: Maybe you can try to move it and break them open !
+      line: (looking uncertain)
     - speaker: Tyler
-      line: How do I break them?
-    - speaker: Explorer
-      line: Just use your sword to smash the crates and barrels.
-    - speaker: Explorer
-      line: "It\u2019s the quickest way to break them."
-    - speaker: Tyler
-      line: "Okay, I\u2019ll try that. Thanks"
+      line: "I... I\u2019ll try. Thanks."
   newDialog:
     lines:
     - speaker: Explorer
-      line: Good luck on your journey!
+      line: "Don\u2019t forget, the crates might have useful items."
+    - speaker: Explorer
+      line: Every barrier you break is a step towards overcoming your fears.
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1
@@ -19949,7 +19935,7 @@ Animator:
   m_GameObject: {fileID: 4985843710886348228}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f63c2b33a0ff9f9489422cfb3acda14b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 65625998359753f4c937b02c544925a8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

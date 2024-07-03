@@ -18,7 +18,8 @@ public class Item
         Keys,
         Brush,
         MoonStone,
-        SunStone
+        SunStone,
+        Orb
     }
 
     public ItemType itemType;
@@ -41,6 +42,7 @@ public class Item
             case ItemType.Brush:            return ItemAssets.Instance.BrushSprite;
             case ItemType.MoonStone:        return ItemAssets.Instance.MoonStoneSprite;
             case ItemType.SunStone:         return ItemAssets.Instance.SunStoneSprite;
+            case ItemType.Orb:              return ItemAssets.Instance.OrbSprite;
         }
     }
 
@@ -62,6 +64,7 @@ public class Item
             case ItemType.Brush:
             case ItemType.MoonStone:
             case ItemType.SunStone:
+            case ItemType.Orb:
                 return false;
         }
     }

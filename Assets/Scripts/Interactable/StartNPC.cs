@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class StartNPC : NPCController
 {
+    [SerializeField] private Dialog newDialog;
     [SerializeField] private Dialog onEnochComplete;
     [SerializeField] private Dialog onCpComplete;
-    [SerializeField] private Dialog onGameComplete;
 
     [SerializeField] private GameObject bars;
     public static int lastLevelCompleted;
@@ -20,11 +20,7 @@ public class StartNPC : NPCController
         }
         else
         {
-            if (EnochStart.EnochCompleted && true) // ADD CP FINISH LEVEL
-            {
-                StartCoroutine(DialogueManager.Instance.ShowDialog(onGameComplete));
-            }
-            else if (EnochStart.EnochCompleted && lastLevelCompleted == 2)
+            if (EnochStart.EnochCompleted && lastLevelCompleted == 2)
             {
                 StartCoroutine(DialogueManager.Instance.ShowDialog(onEnochComplete));
             }

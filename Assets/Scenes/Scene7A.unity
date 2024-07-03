@@ -1812,7 +1812,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.7965796, y: 1.9875475, z: -9.978816}
+  m_LocalPosition: {x: -2.8320422, y: 1.9873675, z: -9.978816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2664,6 +2664,18 @@ PrefabInstance:
       value: 8.75
       objectReference: {fileID: 0}
     - target: {fileID: 3541320552025478282, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6385925
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541320552025478282, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00035864115
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541320552025478282, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.12759985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541320552025478282, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.7297298
       objectReference: {fileID: 0}
@@ -2733,45 +2745,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 15
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[0].line
-      value: Eek Slime !!!! (pull sword)
+      value: (Tyler swings his weapon at Globby)
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[1].line
-      value: Hold on hold on, not all slimes are hostile ok !!?
+      value: Whoa, whoa, whoa! Hold your weapon, kid!
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[2].line
-      value: "I\u2019m Globby, a not-so-hostile slime "
+      value: "I\u2019m Globby, the coolest slime around."
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[3].line
-      value: "Oh, sorry, Globby. I\u2019ve just encountered a lot of hostile slimes
-        recently."
+      value: Save your attacks for that grape monster ahead.
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[4].line
-      value: Yeah, yeah, I get it. Not all slimes are bad, you know.
+      value: (embarrassed)
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[5].line
-      value: I already had enough of grape guys, now another human, ugh...
+      value: "Oh, sorry! I didn\u2019t know. Thanks for the warning."
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[6].line
-      value: Grape guys?
+      value: No worries, kid. Happens all the time.
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[7].line
-      value: 'Yep, they shoot projectiles that go up and fall down in a curve. '
+      value: "Anyway, there\u2019s a moon stone hidden deep in the forest. You\u2019ll
+        need it to move on."
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[8].line
-      value: It's like they're trying to play some weird fruit-themed dodgeball with
-        you.
+      value: You look tougher than a rock, so you should be fine. Maybe.
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[9].line
@@ -2811,19 +2822,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[3].speaker
-      value: Tyler
+      value: Globby
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[4].speaker
-      value: Globby
+      value: Tyler
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[5].speaker
-      value: Globby
+      value: Tyler
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[6].speaker
-      value: Tyler
+      value: Globby
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[7].speaker
@@ -2839,7 +2850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: newDialog.lines.Array.data[0].line
-      value: Why you still here ?
+      value: "Still here? The moon stone isn\u2019t going to find itself, you know."
       objectReference: {fileID: 0}
     - target: {fileID: 7949581473216406238, guid: ccfd9c2b5167471438f8c39ec97de792, type: 3}
       propertyPath: dialog.lines.Array.data[10].speaker

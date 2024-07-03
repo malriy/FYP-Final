@@ -24,4 +24,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite BrushSprite;
     public Sprite MoonStoneSprite;
     public Sprite SunStoneSprite;
+    public Sprite OrbSprite;
 }

@@ -1931,7 +1931,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.665323, y: -1.1873823, z: -9.978816}
+  m_LocalPosition: {x: -2.8680944, y: -1.2121624, z: -9.978816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15676,7 +15676,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00035864115, y: -0.07117778}
+  m_Offset: {x: 0.00035864115, y: -0.08031537}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15687,7 +15687,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5102222, y: 0.7311648}
+  m_Size: {x: 0.5102222, y: 0.74943995}
   m_EdgeRadius: 0
 --- !u!114 &1636923686
 MonoBehaviour:
@@ -15706,17 +15706,19 @@ MonoBehaviour:
   dialog:
     lines:
     - speaker: Artist
-      line: Thanks for saving me !
+      line: "You\u2019ve saved me! Here, take this magic brush."
     - speaker: Artist
-      line: I'm out to sketch the beautiful nature but ended up trapped in here.
+      line: "It\u2019s a special item that will help you progress. "
     - speaker: Artist
-      line: Here is a magical brush which allow you to paint away the door.
-    - speaker: Artist
-      line: I hope it helps you to proceed to the next level !
+      line: "You\u2019re capable of amazing things, Tyler !"
+    - speaker: Tyler
+      line: (looking at the brush)
+    - speaker: Tyler
+      line: "A magic brush? Thank you. I\u2019ll use it."
   newDialog:
     lines:
     - speaker: Artist
-      line: Thanks for the help ! Saviour !
+      line: Use the magic brush wisely, Tyler.
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1
@@ -16264,7 +16266,7 @@ Transform:
   m_GameObject: {fileID: 2038417930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.33, y: 3.88, z: -5.900888}
+  m_LocalPosition: {x: -3.33, y: 3.93, z: -5.900888}
   m_LocalScale: {x: 1.9025799, y: 1.9025799, z: 1.9025799}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16323,7 +16325,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00035865605, y: -0.022188723}
+  m_Offset: {x: 0.00035864115, y: -0.1186893}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -16334,7 +16336,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5102222, y: 0.6331867}
+  m_Size: {x: 0.5102222, y: 0.82618785}
   m_EdgeRadius: 0
 --- !u!114 &2038417934
 MonoBehaviour:
@@ -16353,26 +16355,20 @@ MonoBehaviour:
   dialog:
     lines:
     - speaker: Explorer
-      line: "Hello again, adventurer! I see you\u2019re making progress. How\u2019s
-        your journey so far?"
+      line: Be careful, Tyler. The ghosts here are scary, but you can handle them.
     - speaker: Explorer
-      line: "These ghosts shoot a single bullet at first. But be careful\u2014"
+      line: They get fiercer as they weaken.
     - speaker: Explorer
-      line: "when their health gets low, they\u2019ll start shooting a burst of bullets."
+      line: "Stay strong and keep moving forward. You\u2019ve faced worse before."
+    - speaker: Tyler
+      line: "Thanks. I\u2019ll be careful"
     - speaker: Explorer
-      line: To deal with them, try to keep your distance.
-    - speaker: Explorer
-      line: and use your bow or staff. This will help you avoid their bullets.
-    - speaker: Explorer
-      line: "Funny thing is, these ghosts don\u2019t seem to bother me at all."
-    - speaker: Explorer
-      line: "Guess they know I\u2019m not scared of them! They\u2019re all about
-        you, Tyler."
+      line: These ghosts are your fears of the unknown. Facing them will make you
+        braver.
   newDialog:
     lines:
     - speaker: Explorer
-      line: "Good luck, and don\u2019t hesitate to ask for more tips if you need
-        them!"
+      line: Stay strong, Tyler. You can do this.
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1

@@ -21138,7 +21138,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0026023537, y: -0.025149867}
+  m_Offset: {x: -0.0026023537, y: -0.10033411}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -21149,7 +21149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49245563, y: 0.62726414}
+  m_Size: {x: 0.49245563, y: 0.7776326}
   m_EdgeRadius: 0
 --- !u!114 &7012604635882145671
 MonoBehaviour:
@@ -21167,35 +21167,29 @@ MonoBehaviour:
   npcID: 1
   dialog:
     lines:
-    - speaker: Old lady
-      line: That old man never helps ! (rage)
+    - speaker: Old Lady
+      line: Oh, hello, young one.
+    - speaker: Old Lady
+      line: You seem hesitant, but I know you have the strength to push that boulder.
+    - speaker: Old Lady
+      line: "Give it a try! Obstacles can seem daunting, but they\u2019re just opportunities
+        in disguise."
     - speaker: Tyler
-      line: (...)
-    - speaker: Old lady
-      line: Oh hey there ! Would you lend me a hand kind boy ?
+      line: (nodding)
     - speaker: Tyler
-      line: How can I help...?
-    - speaker: Old lady
-      line: Do you see that boulder over there ?
-    - speaker: Old lady
-      line: You having all those fancy weapons, you must be strong enough move it
-        !
-    - speaker: Tyler
-      line: The boulder THAT BIG ? I'm not confidence enough....
-    - speaker: Old lady
-      line: Listen boy, you see I'm a old woman who able to handle thousand of crates,
-    - speaker: Old lady
-      line: What a young man can't do right ?
-    - speaker: Old lady
-      line: Trust in the old lady and yourself !
-    - speaker: Tyler
-      line: Alright... I will try.
+      line: I'll try... Thank you.
+    - speaker: Old Lady
+      line: By the way, if you come across an old man named George,
+    - speaker: Old Lady
+      line: please help him.
+    - speaker: Old Lady
+      line: " He\u2019s my husband and he often gets lost in the maze."
+    - speaker: Old Lady
+      line: Facing challenges together makes us stronger.
   newDialog:
     lines:
-    - speaker: Nana
-      line: I swear if I see the old man (rage)
-    - speaker: Nana
-      line: Oh sweetie, had you tried ?
+    - speaker: Old Lady
+      line: Remember to find George. You can do it, Tyler!
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1

@@ -17978,7 +17978,7 @@ SpriteRenderer:
   m_SortingLayerID: -2025560845
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 591698741, guid: 9a262c0bf45bff64795f8caa9e9153a6, type: 3}
+  m_Sprite: {fileID: -1982445031, guid: 9a262c0bf45bff64795f8caa9e9153a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -18317,18 +18317,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008556724, y: -0.03380683}
+  m_Offset: {x: -0.008556724, y: -0.10365322}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.45, y: 0.54}
+    oldSize: {x: 0.42, y: 0.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5829401, y: 0.6614706}
+  m_Size: {x: 0.5829401, y: 0.8011634}
   m_EdgeRadius: 0
 --- !u!114 &7012604635882145671
 MonoBehaviour:
@@ -18342,18 +18342,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca90b9371b26a74cade141c6e0fb6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Wiseman
+  npcName: Forest Guide
   npcID: 0
   dialog:
     lines:
-    - speaker: Wiseman
-      line: hi
-    - speaker: Wiseman
-      line: bye
+    - speaker: Forest Guide
+      line: Hey there, adventurer! You look a bit unsure, and that's okay.
+    - speaker: Forest Guide
+      line: "The creatures you\u2019ll face ahead are born from your fears."
+    - speaker: Forest Guide
+      line: " Here, take this health potion, you\u2019ve got this!"
+    - speaker: Tyler
+      line: "Th-thank you. I\u2019m... I'll try."
   newDialog:
     lines:
-    - speaker: Wiseman
-      line: nope
+    - speaker: Forest Guide
+      line: "Keep going, Tyler. You\u2019re doing great!"
   willRoam: 0
   roamDistance: 5
   roamSpeed: 1
