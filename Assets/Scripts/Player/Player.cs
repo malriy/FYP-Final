@@ -76,7 +76,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.K))
         {
-            stats.TakeDamage(stats.maxHealth, this.transform);
+            EnochStart.EnochCompleted = true;
+
         }
 
         if (canMove && !isDead)

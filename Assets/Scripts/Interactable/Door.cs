@@ -10,7 +10,6 @@ public class Door : MonoBehaviour, Interactable
     public void Interact()
     {
         StartCoroutine(colliderOff());
-        //Debug.Log("AUGH");
     }
 
     IEnumerator colliderOff()

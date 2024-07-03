@@ -16,6 +16,8 @@ public class BossStats : MonoBehaviour
     [SerializeField] private Flash headFlash;
     [SerializeField] private GameObject endFlash;
 
+    private CanvasGroup canvasGroup;
+    [SerializeField] private float fadeDuration = 1f;
 
     private bool canTakeDamage = true;
     [SerializeField] private float damageRecoveryTime = 1f;
@@ -94,8 +96,7 @@ public class BossStats : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private CanvasGroup canvasGroup;
-    [SerializeField] private float fadeDuration = 1f;
+    
 
     public void EndLevel()
     {
