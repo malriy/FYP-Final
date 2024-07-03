@@ -9,7 +9,7 @@ public class NPCController : MonoBehaviour, Interactable
     public string npcName;
 
     [SerializeField] public Dialog dialog;
-    [SerializeField] private Dialog newDialog;
+    [SerializeField] public Dialog newDialog;
 
     private Text nameText;
 

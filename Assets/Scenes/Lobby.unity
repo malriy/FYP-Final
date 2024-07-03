@@ -2555,50 +2555,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 839867990085820317, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 22.271
-      objectReference: {fileID: 0}
-    - target: {fileID: 839867990085820317, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 5.203
-      objectReference: {fileID: 0}
-    - target: {fileID: 839867990085820317, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.00000011921
-      objectReference: {fileID: 0}
-    - target: {fileID: 839867990085820317, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5.1
-      objectReference: {fileID: 0}
     - target: {fileID: 2691248574920614849, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1102387065}
-    - target: {fileID: 2691248574920614849, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
     - target: {fileID: 2867228987155958832, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1102387065}
-    - target: {fileID: 2867228987155958832, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
     - target: {fileID: 3528756103224171301, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1102387065}
-    - target: {fileID: 3528756103224171301, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767152123238138524, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4807964353682420161, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05
@@ -2639,42 +2607,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5823488381511350244, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_fontSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5823488381511350244, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5823488381511350244, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5880223514989210854, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5880223514989210854, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -2025560845
-      objectReference: {fileID: 0}
-    - target: {fileID: 6316808526959922679, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8210128345759175519, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8210128345759175519, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494070638457882782, guid: 9d076312de9af244e80dad0b7129d823, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 379513459}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4142,7 +4078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939132865}
   - component: {fileID: 939132864}
-  - component: {fileID: 939132863}
+  - component: {fileID: 939132866}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4150,26 +4086,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &939132863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939132862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &939132864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4200,6 +4116,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939132866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939132862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &942656598
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,16 +4762,28 @@ MonoBehaviour:
   player: {fileID: 0}
   gifts: []
   animator: {fileID: 0}
-  newDialog:
+  onGameComplete:
     lines:
     - speaker: Alex
-      line: Best of luck tyler.
+      line: You've done it Tyler.
     - speaker: Tyler
-      line: What if I get too scared and want to come back here.
+      line: Did I do it?
+    - speaker: Tyler
+      line: Are my fears really gone?
+    - speaker: Tyler
+      line: Just like that?
     - speaker: Alex
-      line: You can't. Face it to the end.
+      line: 'Yes, but they won''t be completely gone. '
     - speaker: Alex
-      line: Take it slow if you need to.
+      line: But now you know how to handle it.
+    - speaker: Alex
+      line: And how to face your past.
+    - speaker: Alex
+      line: Congratulations. You have been a wonderful guest.
+    - speaker: Alex
+      line: I hope to never see you again. In a good way *laughs*
+    - speaker: Tyler
+      line: 'Thank you Alex. You''ve helped me far more than I '
   onEnochComplete:
     lines:
     - speaker: Alex
@@ -4847,7 +4805,27 @@ MonoBehaviour:
     - speaker: Alex
       line: And use it when you go home at the end.
   onCpComplete:
-    lines: []
+    lines:
+    - speaker: Alex
+      line: Welcome back.
+    - speaker: Alex
+      line: Hope those grapes didn't bruise you too much.
+    - speaker: Alex
+      line: What was that about?
+    - speaker: Alex
+      line: What you just went through and completed was..
+    - speaker: Alex
+      line: Your confidence.
+    - speaker: Tyler
+      line: What does that even mean?
+    - speaker: Alex
+      line: I'm not sure why exactly your confidence and self esteem manifests itself
+        as ghosts, slimes and grapes.
+    - speaker: Alex
+      line: But you did well to overcome them.
+    - speaker: Alex
+      line: I hope the people you met have given you a lasting effect on your self
+        esteem.
   bars: {fileID: 942656598}
 --- !u!4 &1465277946 stripped
 Transform:

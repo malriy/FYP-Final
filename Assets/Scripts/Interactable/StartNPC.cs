@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartNPC : NPCController
 {
-    [SerializeField] private Dialog newDialog;
+    [SerializeField] private Dialog onGameComplete;
     [SerializeField] private Dialog onEnochComplete;
     [SerializeField] private Dialog onCpComplete;
 
@@ -20,11 +20,15 @@ public class StartNPC : NPCController
         }
         else
         {
-            if (EnochStart.EnochCompleted && lastLevelCompleted == 2)
+            if (EnochStart.EnochCompleted && LobbyTransitionHandler.ConfidenceCompleted)
+            {
+                StartCoroutine(DialogueManager.Instance.ShowDialog(onGameComplete));
+            }
+            else if (EnochStart.EnochCompleted && lastLevelCompleted == 2)
             {
                 StartCoroutine(DialogueManager.Instance.ShowDialog(onEnochComplete));
             }
-            else if (lastLevelCompleted == 1)
+            else if (LobbyTransitionHandler.ConfidenceCompleted && lastLevelCompleted == 1)
             {
                 StartCoroutine(DialogueManager.Instance.ShowDialog(onCpComplete));
             }

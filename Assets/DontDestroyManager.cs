@@ -19,8 +19,9 @@ public class LobbyTransitionHandler : MonoBehaviour
             if (!requiresItems || HasRequiredItems(playerController))
             {
                 ConfidenceCompleted = true;
+                StartNPC.lastLevelCompleted = 1;
+
                 LoadLobbyScene();
-                Debug.Log("ConfidenceCompleted is now true");
             }
             else
             {

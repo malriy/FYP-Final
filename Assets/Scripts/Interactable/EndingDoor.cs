@@ -12,7 +12,7 @@ public class EndingDoor : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (LobbyTransitionHandler.ConfidenceCompleted)  //ADD CHONG PEI'S "IS LEVEL FINISHED VARIABLE"
+        if (EnochStart.EnochCompleted && LobbyTransitionHandler.ConfidenceCompleted)  
         {
             StartCoroutine(colliderOff());
         }
