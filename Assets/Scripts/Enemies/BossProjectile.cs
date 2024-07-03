@@ -76,7 +76,6 @@ public class BossProjectile : MonoBehaviour
         {
             PlayerHealth1 playerHealth = player.GetComponent<PlayerHealth1>();
             playerHealth.TakeDamage(rocketDamage, Shooter.transform);
-            Debug.Log("Hit player");
             OnHit();
         }
     }

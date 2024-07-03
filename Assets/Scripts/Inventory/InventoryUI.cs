@@ -51,10 +51,6 @@ public class InventoryUI : MonoBehaviour
 
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
     {
-        foreach (Item i in inventory.GetItems())
-        {
-            Debug.Log($"Is player null: {player == null}");
-        }
         RefreshInvItems();
     }
 
@@ -116,10 +112,6 @@ public class InventoryUI : MonoBehaviour
         {
             UseItem(item);
         }
-        else if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            DropItem(item);
-        }
     }
 
     public void UseItem(Item item)
@@ -127,15 +119,6 @@ public class InventoryUI : MonoBehaviour
         inventory.UseItem(item);
     }
 
-    public void DropItem(Item item)
-    {
-        Vector3 playerInstance = player != null ? player.transform.position : PlayerController1.Instance.transform.position;
-
-        Item duplicateItem =  new Item { itemType = item.itemType, amount = item.amount };
-        inventory.RemoveItem(item);
-        ItemWorld.DropItem(playerInstance, duplicateItem);
-
-    }
     public InventoryController GetInventoryController()
     {
         return inventory;

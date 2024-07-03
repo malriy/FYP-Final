@@ -25,8 +25,6 @@ public class BrownBuilding : MonoBehaviour, IAdvanced
 
     public void NotYetInteract()
     {
-        // Display a message indicating that the player can't open the door
-        Debug.Log("I can't open this");
         StartCoroutine(DialogueManager.Instance.ShowDialog(dialog));
     }
 }

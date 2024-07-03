@@ -14,15 +14,6 @@ public class ItemWorld : MonoBehaviour
         return itemWorld;
     }
 
-    public static ItemWorld DropItem(Vector3 dropPos, Item item)
-    {
-        Debug.Log($"Item Type: {item.itemType}");
-        ItemWorld itemWorld = SpawnItemWorld(new Vector3(dropPos.x, dropPos.y - 2f, dropPos.z), item);
-        //itemWorld.GetComponent<Rigidbody2D>().AddForce(randomDir * 3f, ForceMode2D.Impulse);
-
-        return itemWorld;
-    }
-
     private Item item;
     private SpriteRenderer spriteRenderer;
 

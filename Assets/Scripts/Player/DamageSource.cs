@@ -18,7 +18,6 @@ public class DamageSource : MonoBehaviour
         BossStats stats = other.GetComponent<BossStats>();
         if (stats != null)
         {
-            Debug.Log("Boss take damage");
             stats?.TakeDamage(damageAmount);
         }
     }
