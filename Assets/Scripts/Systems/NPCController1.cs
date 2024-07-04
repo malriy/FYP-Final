@@ -42,10 +42,9 @@ public class NPCController1 : MonoBehaviour, Interactable
 
     private void Start()
     {
-        #if UNITY_EDITOR
         // Uncomment the next line to reset the interaction state in the Unity Editor for testing purposes
         PlayerPrefs.DeleteKey(npcID);
-        #endif
+        
 
         startPosition = transform.position;
         leftPosition = startPosition + Vector3.left * roamDistance;

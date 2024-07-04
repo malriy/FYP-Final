@@ -8,6 +8,8 @@ public class ActiveInventory : MonoBehaviour
 
     private PlayerControls playerControls;
 
+    [SerializeField] private GameObject activeWeaponUI; // Reference to the ActiveWeapon UI element
+
     private void Awake() {
         playerControls = new PlayerControls();
     }
@@ -20,6 +22,16 @@ public class ActiveInventory : MonoBehaviour
 
     private void OnEnable() {
         playerControls.Enable();
+    }
+
+    private void OnDisable() {
+        playerControls.Disable();
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            ToggleActiveWeaponUI();
+        }
     }
 
     private void ToggleActiveSlot(int numValue) {
@@ -58,5 +70,12 @@ public class ActiveInventory : MonoBehaviour
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
 
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
+    }
+
+    private void ToggleActiveWeaponUI() {
+        if (activeWeaponUI != null) {
+            bool isActive = activeWeaponUI.activeSelf;
+            activeWeaponUI.SetActive(!isActive);
+        }
     }
 }
