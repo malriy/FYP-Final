@@ -8,13 +8,13 @@ public class GymBro : Quest
     void Start()
     {
         questName = "Gym Bro";
-        description = "Get a gym membership card and 3 water bottles";
+        description = "Get a gym membership card";
 
 
         Goals = new List<Goal>
         {
             new CollectionGoal(this, new Item{ itemType = Item.ItemType.GymCard }, description, false,0,1),
-            new CollectionGoal(this, new Item{ itemType = Item.ItemType.ManaPotion }, description, false,0,3)
+            //new CollectionGoal(this, new Item{ itemType = Item.ItemType.ManaPotion }, description, false,0,3)
 
         };
 

@@ -74,6 +74,14 @@ public class Player : MonoBehaviour
 
     public void HandleUpdate()
     {
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            LobbyTransitionHandler.ConfidenceCompleted = true;
+            StartNPC.lastLevelCompleted = 1;
+        }
+
+        EnochStart.EnochCompleted = true;
+
         if (canMove && !isDead)
         {
             AdjustPlayerFacingDirection();

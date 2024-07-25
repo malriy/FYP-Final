@@ -312,14 +312,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf4fee963557c8438490006182f2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 70
   animator: {fileID: 9184654577717052917}
   head: {fileID: 5566197132212934891}
   flash: {fileID: 9058827082368887337}
   headFlash: {fileID: 0}
   endFlash: {fileID: 0}
-  damageRecoveryTime: 1
   fadeDuration: 1
+  damageRecoveryTime: 1
 --- !u!114 &6699358170502571999
 MonoBehaviour:
   m_ObjectHideFlags: 0
